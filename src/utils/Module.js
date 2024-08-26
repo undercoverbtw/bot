@@ -51,7 +51,7 @@ class Module {
         if (!startedBots) {
             stoppingBots = false;
             for (let i = 0; i < config.botsAmount; i++) this.bots.push(new NELBOTS(i, this.ws));
-            this.botInt = setInterval(() => { this.updateAliveBots(); }, 500);
+            this.botInt = setInterval(() => { this.updateAliveBots(); }, 200);
             Logger.info(`User Starting bots`);
         }
     }
@@ -128,7 +128,6 @@ class NELBOTS {
 		this.headers = Helper.generateHeaders(new URL(server).host);
 		this.connect();
 	}
-}
 	connect() {
 		this.requestCaptchaToken();
 		this.ws = new WebSocket(server, {
@@ -136,7 +135,6 @@ class NELBOTS {
 			headers: this.headers,
 			rejectUnauthorized: false
 		});
-		
 		this.ws.binaryType = "arraybuffer";
 		this.ws.onopen = this.onopen.bind(this);
 		this.ws.onclose = this.onclose.bind(this);
@@ -315,7 +313,7 @@ class NELBOTS {
 		this.send(writer.buffer);
 	}
 	spawn() {
-		const string = "cloudy is best";
+		const string = config.botsName + "|" + Helper.randomString(10);
 		const writer = new Writer(2 + (string.length + 1) * 2);
 		writer.writeUint8(0);
 		writer.writeString16(string);
