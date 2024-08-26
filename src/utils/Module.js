@@ -4,9 +4,6 @@ const Writer = require("./Writer");
 const Helper = require("./Helper");
 const Logger = require("./Logger");
 const config = require("../config/config");
-var axios = require('axios');
-
-var token = "b3402ff57b5e4b459aebfbeed4b7a60c7e0de0b2a93";
 
 let server = null;
 let startedBots = false;
@@ -131,24 +128,14 @@ class NELBOTS {
 		this.headers = Helper.generateHeaders(new URL(server).host);
 		this.connect();
 	}
-
-	var targetUrl = encodeURIComponent(server); 
-var config = {
-    'url': `https://api.scrape.do?token=${token}&url=${targetUrl}`,
-    'headers': this.headers,
-	rejectUnauthorized: false
 }
 	connect() {
 		this.requestCaptchaToken();
-		this.ws = config;
-
-		axios(config)
-    .then(function (response) {
-        console.log(response.data);
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
+		this.ws = new WebSocket(server, {
+			agent: this.agent,
+			headers: this.headers,
+			rejectUnauthorized: false
+		});
 		
 		this.ws.binaryType = "arraybuffer";
 		this.ws.onopen = this.onopen.bind(this);
