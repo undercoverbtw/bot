@@ -31,7 +31,7 @@ class Helper {
             'Pragma': 'no-cache',
             'Sec-WebSocket-Extensions': 'permessage-deflate; client_max_window_bits',
             'Sec-WebSocket-Version': '13',
-            'User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0",
+            'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0",
         }
     }
     static async sendRequest(agent) {
