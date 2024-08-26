@@ -1,5 +1,5 @@
 var version, showSideMenu, hideSideMenu;
-(function () {
+(function() {
     var aa = [
         'gota.io',
         '',
@@ -1939,7 +1939,7 @@ var version, showSideMenu, hideSideMenu;
     }
 
     function ac() {
-        $('#main-right').children().each(function () {
+        $('#main-right').children().each(function() {
             if ($(this).css('display') == 'block') {
                 $(this).slideUp(500);
             }
@@ -2017,7 +2017,7 @@ var version, showSideMenu, hideSideMenu;
             endDate: 1703721600000,
             enabled: false,
             motherCustomEnabled: false,
-            motherCustom: function (aa) {},
+            motherCustom: function(aa) {},
             happyMotherCells: []
         };
         cy.enabled = new Date() < cy.endDate;
@@ -2193,11 +2193,11 @@ var version, showSideMenu, hideSideMenu;
             cb = $('#scrimmage-custom');;;;;;;;;;;;;;
             dr();
             bv = false;
-            window.onmousemove = function (ab) {
+            window.onmousemove = function(ab) {
                 ba.mouseRawX = ab.clientX;
                 ba.mouseRawY = ab.clientY;
             };
-            window.onkeydown = function (ab) {
+            window.onkeydown = function(ab) {
                 var ah = ab.which || ab.keyCode || ab.charCode;
                 if (ah <= 5) {
                     return;
@@ -2222,7 +2222,7 @@ var version, showSideMenu, hideSideMenu;
                 };
                 ba.handleKey(ah);
             };
-            window.onkeyup = function (ab) {
+            window.onkeyup = function(ab) {
                 var ah = ab.which || ab.keyCode || ab.charCode;
                 if (ah == df.kEjectMass) {
                     bv = false;
@@ -2231,7 +2231,7 @@ var version, showSideMenu, hideSideMenu;
                     }
                 }
             };
-            window.onmousedown = function (ab) {
+            window.onmousedown = function(ab) {
                 var ah = ab.button + 1;
                 if (dg) {
                     db(ah);
@@ -2243,7 +2243,7 @@ var version, showSideMenu, hideSideMenu;
                 };
                 ba.handleKey(ah);
             };
-            window.onmouseup = function (ab) {
+            window.onmouseup = function(ab) {
                 var ah = ab.button + 1;
                 if (ah == df.kEjectMass) {
                     bv = false;
@@ -2252,7 +2252,7 @@ var version, showSideMenu, hideSideMenu;
                     }
                 }
             };
-            window.onblur = function (ab) {
+            window.onblur = function(ab) {
                 if (bv && de.cDisablePersistEjectMass) {
                     bv = false;
                     if (ba) {
@@ -2260,7 +2260,7 @@ var version, showSideMenu, hideSideMenu;
                     }
                 }
             };
-            $(document).on('wheel', function (ah) {
+            $(document).on('wheel', function(ah) {
                 if (bn.css('display') == 'none' && ah.target.id == 'canvas') {
                     var ab = ah.originalEvent.wheelDelta || ah.originalEvent.deltaY * -1;
                     if (ab > 0) {
@@ -2271,7 +2271,7 @@ var version, showSideMenu, hideSideMenu;
                     ba.mouseZoom = ba.mouseZoom > 5 ? 5 : ba.mouseZoom < 0.1 ? 0.1 : ba.mouseZoom;
                 }
             });
-            document.addEventListener('contextmenu', function (ab) {
+            document.addEventListener('contextmenu', function(ab) {
                 ab.preventDefault();
             });
             du();
@@ -2286,7 +2286,7 @@ var version, showSideMenu, hideSideMenu;
             };
             if (ae != null && ae != '') {
                 ae = ae[0].toUpperCase() + ae.slice(1);
-                dn = function () {
+                dn = function() {
                     var ab = null;
                     if ((ab = dw(ae)) != null) {
                         dx(ab.name);
@@ -2298,7 +2298,7 @@ var version, showSideMenu, hideSideMenu;
             } else {
                 dn = ah;
             };
-            firebase.database().ref('/game').on('value', function (af) {
+            firebase.database().ref('/game').on('value', function(af) {
                 var ab = af.val();
                 if (ab.version !== version) {
                     ba.selfMsg('Woah! Version ' + ab.version + ' is now available. Press Ctrl+R to update!');
@@ -2326,7 +2326,7 @@ var version, showSideMenu, hideSideMenu;
                     type: 'POST',
                     dataType: 'json',
                     url: 'https://accounts.gota.io/api/v1/utilities/servers',
-                    success: function (ab) {
+                    success: function(ab) {
                         for (var ae of ab) {
                             var bx = [];
                             for (var af of ae.servers) {
@@ -2357,7 +2357,7 @@ var version, showSideMenu, hideSideMenu;
                             }
                         }
                     },
-                    error: function (aa) {
+                    error: function(aa) {
                         ea();
                     }
                 });
@@ -2636,7 +2636,7 @@ var version, showSideMenu, hideSideMenu;
             this.clearStats();
             setInterval(this.sendPing.bind(this), 30000);
         }
-        ed.prototype.clearStats = function () {
+        ed.prototype.clearStats = function() {
             this.stats = {
                 name: 'An unnamed cell',
                 alive: 0,
@@ -2650,7 +2650,7 @@ var version, showSideMenu, hideSideMenu;
                 gainPlayer: 0
             };
         };
-        ed.prototype.play = function () {
+        ed.prototype.play = function() {
             if (bl == null) {
                 this.selfMsg('No server selected!');
                 return;
@@ -2669,7 +2669,7 @@ var version, showSideMenu, hideSideMenu;
             dt(bn);
             ga('send', 'event', 'Game', 'webMenu', 'Play');
         };
-        ed.prototype.spec = function () {
+        ed.prototype.spec = function() {
             if (bl == null) {
                 this.selfMsg('No server selected!');
                 return;
@@ -2685,7 +2685,7 @@ var version, showSideMenu, hideSideMenu;
             dt(bn);
             ga('send', 'event', 'Game', 'webMenu', 'Spectate');
         };
-        ed.prototype.connect = function (ah) {
+        ed.prototype.connect = function(ah) {
             if (this.socket != null) {
                 this.socket.nextUrl = ah;
                 this.disconnect(ah);
@@ -2703,18 +2703,18 @@ var version, showSideMenu, hideSideMenu;
             var ab = this;
             this.socket.onopen = this.onConnect.bind(this);
             this.socket.onmessage = this.onMessage.bind(this);
-            this.socket.onclose = function (ah) {
+            this.socket.onclose = function(ah) {
                 ab.reset();
                 ab.selfMsg('You have been disconnected from the server. Reason: ' + (ah.reason === '' ? 'Unknown' : ah.reason));
                 if (this.nextUrl != null) {
                     ab.connect(this.nextUrl);
                 }
             };
-            this.socket.onerror = function (ac) {
+            this.socket.onerror = function(ac) {
                 ab.reset();
                 this.nextUrl = null;
                 ab.selfMsg('Error connecting to server... Retrying every second.');
-                setTimeout(function () {
+                setTimeout(function() {
                     if (ab.isConnected() == false && ab.socket == null) {
                         ab.connect(ah);
                     }
@@ -2722,12 +2722,12 @@ var version, showSideMenu, hideSideMenu;
             };
             document.body.classList.add('hide-captcha-badge');
         };
-        ed.prototype.disconnect = function (ab) {
+        ed.prototype.disconnect = function(ab) {
             if (this.socket != null) {
                 this.socket.close();
             }
         };
-        ed.prototype.clearBuckets = function () {
+        ed.prototype.clearBuckets = function() {
             for (var ab in this.bucket) {
                 this.bucket[ab].onDelete();
                 delete this.bucket[ab];
@@ -2737,7 +2737,7 @@ var version, showSideMenu, hideSideMenu;
                 delete this.foodObjects[ab];
             }
         };
-        ed.prototype.reset = function () {
+        ed.prototype.reset = function() {
             this.clearBuckets();
             this.myCells = {};
             this.playerRegistry.clear();
@@ -2761,7 +2761,7 @@ var version, showSideMenu, hideSideMenu;
                 fb();
             }
         };
-        ed.prototype.handleKey = function (ah) {
+        ed.prototype.handleKey = function(ah) {
             if (ah == df.kEjectMass) {
                 bv = true;
                 this.sendPacket(new bb.sendEjectMass(true));
@@ -2821,19 +2821,19 @@ var version, showSideMenu, hideSideMenu;
                 }
             }
         };
-        ed.prototype.isConnected = function () {
+        ed.prototype.isConnected = function() {
             if (this.socket == null) {
                 return false;
             } else {
                 return this.socket.readyState == 1;
             }
         };
-        ed.prototype.sendPacket = function (ab) {
+        ed.prototype.sendPacket = function(ab) {
             if (this.isConnected()) {
                 this.socket.send(ab);
             }
         };
-        ed.prototype.onConnect = function () {
+        ed.prototype.onConnect = function() {
             cl = [];
             fd();
             this.sendPacket(new bb.connectionStart());
@@ -2854,25 +2854,25 @@ var version, showSideMenu, hideSideMenu;
                 }
             }
         };
-        ed.prototype.sendPing = function () {
+        ed.prototype.sendPing = function() {
             if (this.isConnected()) {
                 bh = +new Date();
                 this.sendPacket(new bb.sendPing());
             }
         };
-        ed.prototype.sendOptions = function () {
+        ed.prototype.sendOptions = function() {
             if (this.isConnected()) {
                 this.sendPacket(new bb.sendOptions());
             }
         };
-        ed.prototype.selfMsg = function (ah) {
+        ed.prototype.selfMsg = function(ah) {
             var ab = document.createElement('td');
             var ac = document.createElement('span');
             ac.style.color = '#DDDD00';;
             ab.appendChild(ac);
             af(8, ab);
         };
-        ed.prototype.selfMsgWithJoinCode = function (ag, ab) {
+        ed.prototype.selfMsgWithJoinCode = function(ag, ab) {
             var ac = document.createElement('td');
             var ae = document.createElement('span');
             ae.style.color = '#DDDD00';
@@ -2886,7 +2886,7 @@ var version, showSideMenu, hideSideMenu;
             ac.appendChild(ah);
             af(8, ac);
         };
-        ed.prototype.clearParty = function (ab) {
+        ed.prototype.clearParty = function(ab) {
             this.party = [];
             this.partyIds = {};
             this.partyLeader = -1;
@@ -2900,128 +2900,128 @@ var version, showSideMenu, hideSideMenu;
                 window.history.pushState('page', '', ' ');
             }
         };
-        ed.prototype.isPartyLeader = function () {
+        ed.prototype.isPartyLeader = function() {
             return this.partyLeader == this.playerId;
         };
-        ed.prototype.getServerMaxCells = function () {
+        ed.prototype.getServerMaxCells = function() {
             return this.serverData.maxCells + this.buffHolder.bonusMaxCells;
         };
-        ed.prototype.onMessage = function (ah) {
+        ed.prototype.onMessage = function(ah) {
             var ab = new DataView(ah.data);
             var ac = ab.getUint8(0);
             ab.offset = 1;
             switch (ac) {
-            case 2:
-                this.handleUpdate(ab);
-                break;
-            case 10:
-                this.handlePosition(ab);
-                break;
-            case 21:
-                this.handleStats(ab);
-                break;
-            case 22:
-                this.showSubPanel(ab);
-                break;
-            case 23:
-                this.updateSubPanel(ab);
-                break;
-            case 40:
-                this.handleInvite(ab);
-                break;
-            case 41:
-                this.handlePartyInfo(ab);
-                break;
-            case 45:
-                this.handlePartyData(ab);
-                break;
-            case 43:
-                this.handlePartyJoinCode(ab);
-                break;
-            case 49:
-                this.handleLeaderboard(ab);
-                break;
-            case 50:
-                this.handleLeaderboardCustom(ab);
-                break;
-            case 63:
-                this.handleRespawnCooldown(ab);
-                break;
-            case 64:
-                this.handleMapData(ab);
-                break;
-            case 65:
-                this.handleClearNodes();
-                break;
-            case 66:
-                this.handleUpdateBorder(ab);
-                break;
-            case 68:
-                this.handleResetTime(ab);
-                break;
-            case 69:
-                this.handleSpectators(ab);
-                break;
-            case 70:
-                this.handleSystemMsg(ab);
-                break;
-            case 71:
-                this.handlePing();
-                break;
-            case 72:
-                this.handleChat(ab);
-                break;
-            case 73:
-                this.handleWhisper(ab);
-                break;
-            case 74:
-                this.handleEditMessage(ab);
-                break;
-            case 80:
-                this.handleShowScrimmageMenu();
-                break;
-            case 81:
-                this.handleQueueData(ab);
-                break;
-            case 82:
-                this.handleQueueLeave(ab);
-                break;
-            case 83:
-                this.handleMatchState(ab);
-                break;
-            case 90:
-                this.handleScrimmageData(ab);
-                break;
-            case 91:
-                this.handleCustomGameShow(ab);
-                break;
-            case 92:
-                this.handleCustomGameUpdate(ab);
-                break;
-            case 93:
-                this.handleCustomGameLeave();
-                break;
-            case 94:
-                this.handleShowCustomGameLobbies(ab);
-                break;
-            case 100:
-                this.handleAddBuff(ab);
-                break;
-            case 101:
-                this.handleRemoveBuff(ab);
-                break;
-            case 102:
-                this.handleClearBuffs(ab);
-                break;
-            case 103:
-                this.handleAuthenticated(ab);
-                break;
-            case 104:
-                this.handleProfile(ab);
-                break;
+                case 2:
+                    this.handleUpdate(ab);
+                    break;
+                case 10:
+                    this.handlePosition(ab);
+                    break;
+                case 21:
+                    this.handleStats(ab);
+                    break;
+                case 22:
+                    this.showSubPanel(ab);
+                    break;
+                case 23:
+                    this.updateSubPanel(ab);
+                    break;
+                case 40:
+                    this.handleInvite(ab);
+                    break;
+                case 41:
+                    this.handlePartyInfo(ab);
+                    break;
+                case 45:
+                    this.handlePartyData(ab);
+                    break;
+                case 43:
+                    this.handlePartyJoinCode(ab);
+                    break;
+                case 49:
+                    this.handleLeaderboard(ab);
+                    break;
+                case 50:
+                    this.handleLeaderboardCustom(ab);
+                    break;
+                case 63:
+                    this.handleRespawnCooldown(ab);
+                    break;
+                case 64:
+                    this.handleMapData(ab);
+                    break;
+                case 65:
+                    this.handleClearNodes();
+                    break;
+                case 66:
+                    this.handleUpdateBorder(ab);
+                    break;
+                case 68:
+                    this.handleResetTime(ab);
+                    break;
+                case 69:
+                    this.handleSpectators(ab);
+                    break;
+                case 70:
+                    this.handleSystemMsg(ab);
+                    break;
+                case 71:
+                    this.handlePing();
+                    break;
+                case 72:
+                    this.handleChat(ab);
+                    break;
+                case 73:
+                    this.handleWhisper(ab);
+                    break;
+                case 74:
+                    this.handleEditMessage(ab);
+                    break;
+                case 80:
+                    this.handleShowScrimmageMenu();
+                    break;
+                case 81:
+                    this.handleQueueData(ab);
+                    break;
+                case 82:
+                    this.handleQueueLeave(ab);
+                    break;
+                case 83:
+                    this.handleMatchState(ab);
+                    break;
+                case 90:
+                    this.handleScrimmageData(ab);
+                    break;
+                case 91:
+                    this.handleCustomGameShow(ab);
+                    break;
+                case 92:
+                    this.handleCustomGameUpdate(ab);
+                    break;
+                case 93:
+                    this.handleCustomGameLeave();
+                    break;
+                case 94:
+                    this.handleShowCustomGameLobbies(ab);
+                    break;
+                case 100:
+                    this.handleAddBuff(ab);
+                    break;
+                case 101:
+                    this.handleRemoveBuff(ab);
+                    break;
+                case 102:
+                    this.handleClearBuffs(ab);
+                    break;
+                case 103:
+                    this.handleAuthenticated(ab);
+                    break;
+                case 104:
+                    this.handleProfile(ab);
+                    break;
             }
         };
-        ed.prototype.handleUpdate = function (am) {
+        ed.prototype.handleUpdate = function(am) {
             var ab = am.getUint16(am.offset, true);
             am.offset += 2;
             while (ab > 0) {
@@ -3053,7 +3053,7 @@ var version, showSideMenu, hideSideMenu;
                                 if (bs.css('display') != 'block') {
                                     ff(bn);
                                 };
-                                aiptag.cmd.display.push(function () {
+                                aiptag.cmd.display.push(function() {
                                     aipDisplayTag.refresh('GOT_gota-io_336x280');
                                 });
                             }
@@ -3121,30 +3121,30 @@ var version, showSideMenu, hideSideMenu;
                     ag.setY(am.getInt16(am.offset + 2, true));
                     am.offset += 4;
                     switch (bx) {
-                    case 6:
-                        ;
-                        break;
-                    case 1:
-                        ag.setSize(am.getUint16(am.offset, true));
-                        am.offset += 2;;
-                        var ah = am.getUint8(am.offset++);;;
-                        break;
-                    case 2:
-                        ag.setSize(am.getUint16(am.offset, true));
-                        am.offset += 2;;
-                        break;
-                    case 3:
-                        ag.setSize(am.getUint16(am.offset, true));
-                        am.offset += 2;
-                        break;
-                    case 4:
-                        ag.setSize(am.getUint16(am.offset, true));
-                        am.offset += 2;
-                        break;
-                    case 5:
-                        ag.setSize(am.getUint16(am.offset, true));
-                        am.offset += 2;;
-                        break;
+                        case 6:
+                            ;
+                            break;
+                        case 1:
+                            ag.setSize(am.getUint16(am.offset, true));
+                            am.offset += 2;;
+                            var ah = am.getUint8(am.offset++);;;
+                            break;
+                        case 2:
+                            ag.setSize(am.getUint16(am.offset, true));
+                            am.offset += 2;;
+                            break;
+                        case 3:
+                            ag.setSize(am.getUint16(am.offset, true));
+                            am.offset += 2;
+                            break;
+                        case 4:
+                            ag.setSize(am.getUint16(am.offset, true));
+                            am.offset += 2;
+                            break;
+                        case 5:
+                            ag.setSize(am.getUint16(am.offset, true));
+                            am.offset += 2;;
+                            break;
                     };
                     ag.onCreate(this);
                 }
@@ -3181,24 +3181,24 @@ var version, showSideMenu, hideSideMenu;
                         ag.updateY(cl);
                     };
                     switch (bx) {
-                    case 2:
-                        ;
-                        am.offset += 2;
-                        break;
-                    case 3:
-                        ;
-                        am.offset += 2;
-                        break;
-                    case 4:
-                        ;
-                        am.offset += 2;
-                        break;
+                        case 2:
+                            ;
+                            am.offset += 2;
+                            break;
+                        case 3:
+                            ;
+                            am.offset += 2;
+                            break;
+                        case 4:
+                            ;
+                            am.offset += 2;
+                            break;
                     };;
                 }
             };
             this.sortCells();
         };
-        ed.prototype.handlePosition = function (ab) {
+        ed.prototype.handlePosition = function(ab) {
             this.centerX_ = ab.getFloat32(ab.offset, true);
             ab.offset += 4;
             this.centerY_ = ab.getFloat32(ab.offset, true);
@@ -3208,11 +3208,11 @@ var version, showSideMenu, hideSideMenu;
                 this.scale_base = ab.getFloat32(ab.offset, true);
             }
         };
-        ed.prototype.handleRespawnCooldown = function (ah) {
+        ed.prototype.handleRespawnCooldown = function(ah) {
             var ab = ah.getFloat64(ah.offset, true);
             this.respawnCooldown = ab;
         };
-        ed.prototype.handleMapData = function (ab) {
+        ed.prototype.handleMapData = function(ab) {
             this.playerId = ab.getUint16(ab.offset, true);
             ab.offset += 3;
             this.handleUpdateBorder(ab);
@@ -3228,7 +3228,7 @@ var version, showSideMenu, hideSideMenu;
             bs.css('display', 'none');
             $('#scrimmage-btn-leave').css('display', 'none');
         };
-        ed.prototype.handleUpdateBorder = function (ab) {
+        ed.prototype.handleUpdateBorder = function(ab) {
             this.serverData.border = {};
             this.serverData.border.left = ab.getInt16(ab.offset, true);
             this.serverData.border.top = ab.getInt16(ab.offset + 2, true);
@@ -3240,20 +3240,20 @@ var version, showSideMenu, hideSideMenu;
             this.serverData.border.enabled = this.serverData.border.width != 0 && this.serverData.border.height != 0;
             es();
         };
-        ed.prototype.handleResetTime = function (ac) {
+        ed.prototype.handleResetTime = function(ac) {
             var ah = ac.getUint8(ac.offset++);
             var ab = ac.getFloat64(ac.offset, true);
             this.serverData.resetType = ah;
             this.serverData.resetTime = ab;
         };
-        ed.prototype.handleSpectators = function (ab) {
+        ed.prototype.handleSpectators = function(ab) {
             this.spectators = ab.getUint16(ab.offset, true);
             this.updateSpectators();
         };
-        ed.prototype.handleClearNodes = function (ab) {
+        ed.prototype.handleClearNodes = function(ab) {
             this.clearBuckets();
         };
-        ed.prototype.handleLeaderboard = function (bx) {
+        ed.prototype.handleLeaderboard = function(bx) {
             var ag = document.getElementById('leaderboard-canvas');
             var ah = ag.getContext('2d');
             bq.text('Leaderboard');
@@ -3278,7 +3278,7 @@ var version, showSideMenu, hideSideMenu;
                 ad += 20;
             }
         };
-        ed.prototype.handleLeaderboardCustom = function (am) {
+        ed.prototype.handleLeaderboardCustom = function(am) {
             var ag = document.getElementById('leaderboard-canvas');
             var ac = ag.getContext('2d');
             bq.html('Leaderboard');
@@ -3298,7 +3298,7 @@ var version, showSideMenu, hideSideMenu;
                 ad += 20;
             }
         };
-        ed.prototype.handlePing = function () {
+        ed.prototype.handlePing = function() {
             var ab = +new Date() - bh;
             if (!de.cColoredPing) {
                 if (ab < 100) {
@@ -3323,7 +3323,7 @@ var version, showSideMenu, hideSideMenu;
             };
             $('#playerPing').html(ab + 'ms');
         };
-        ed.prototype.handleChat = function (fm) {
+        ed.prototype.handleChat = function(fm) {
             var ab = fm.getUint8(fm.offset++);
             var en = 'rgb(' + fm.getUint8(fm.offset++) + ',' + fm.getUint8(fm.offset++) + ',' + fm.getUint8(fm.offset++) + ')';
             var ac = fm.getUint8(fm.offset++);
@@ -3340,17 +3340,17 @@ var version, showSideMenu, hideSideMenu;
             var am = fm.offset < fm.byteLength ? fm.getBigInt64(fm.offset, true) : 0;
             var ah;
             switch (ab) {
-            case 1:
-                ah = 'Party';
-                ag = 2;
-                break;
-            case 2:
-                ah = 'Admin';
-                ag = 16;
-                break;
-            default:
-                ah = 'All';
-                break;
+                case 1:
+                    ah = 'Party';
+                    ag = 2;
+                    break;
+                case 2:
+                    ah = 'Admin';
+                    ag = 16;
+                    break;
+                default:
+                    ah = 'All';
+                    break;
             };
             if (fn.length > 0) {
                 (ah += ' - ' + fn).replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -3379,7 +3379,7 @@ var version, showSideMenu, hideSideMenu;
             ad.appendChild(ey);
             af(ag, ad);
         };
-        ed.prototype.handleWhisper = function (fo) {
+        ed.prototype.handleWhisper = function(fo) {
             var am = fi(fo).replace(/</g, '&lt;').replace(/>/g, '&gt;') || 'An unnamed cell';
             var en = fo.getUint16(fo.offset, true);
             fo.offset += 2;
@@ -3415,7 +3415,7 @@ var version, showSideMenu, hideSideMenu;
             ah.appendChild(ao);
             af(4, ah);
         };
-        ed.prototype.handleEditMessage = function (ac) {
+        ed.prototype.handleEditMessage = function(ac) {
             var ah = ac.getBigInt64(ac.offset, true);;
             var ab = fi(ac).replace(/</g, '&lt;').replace(/>/g, '&gt;');
             if (ab.length > 0) {
@@ -3424,18 +3424,18 @@ var version, showSideMenu, hideSideMenu;
                 $('.chat-table td[data-msgid=\'' + ah + '\']').closest('tr').remove();
             }
         };
-        ed.prototype.handleSystemMsg = function (ah) {
+        ed.prototype.handleSystemMsg = function(ah) {
             var ab = fi(ah);
             this.selfMsg(ab);
         };
-        ed.prototype.handleAuthenticated = function (ah) {
+        ed.prototype.handleAuthenticated = function(ah) {
             var ab = ah.getUint8(1);
             switch (ab) {
-            case 0:
-                break;
-            case 1:
-                this.selfMsg('Invalid authentication token! Please logout and try again!');
-                break;
+                case 0:
+                    break;
+                case 1:
+                    this.selfMsg('Invalid authentication token! Please logout and try again!');
+                    break;
             };
             if (!this.spectate) {
                 this.sendPacket(new bb.setName(this.name));
@@ -3443,12 +3443,12 @@ var version, showSideMenu, hideSideMenu;
                 this.sendPacket(new bb.sendSpectate());
             }
         };
-        ed.prototype.handleProfile = function (ac) {
+        ed.prototype.handleProfile = function(ac) {
             var ab = fj(ac);
             var ah = JSON.parse(ab);
             fs(ah);
         };
-        ed.prototype.handleInvite = function (ac) {
+        ed.prototype.handleInvite = function(ac) {
             if (de.cAutoDecline) {
                 ba.sendPacket(new bb.sendInviteResponse(false));
             } else {
@@ -3458,7 +3458,7 @@ var version, showSideMenu, hideSideMenu;
                 ff($('#popup-party'));
             }
         };
-        ed.prototype.handlePartyInfo = function (am) {
+        ed.prototype.handlePartyInfo = function(am) {
             var ag = {
                 color: ft[ag.id % ft.length],
                 color: (am.getUint8(am.offset++) << 16) + (am.getUint8(am.offset++) << 8) + am.getUint8(am.offset++),
@@ -3547,7 +3547,7 @@ var version, showSideMenu, hideSideMenu;
                 this.clearParty();
             }
         };
-        ed.prototype.handlePartyData = function (af) {
+        ed.prototype.handlePartyData = function(af) {
             var ab = af.getUint16(af.offset, true);
             af.offset += 2;
             if (ab != this.party.length) {
@@ -3562,7 +3562,7 @@ var version, showSideMenu, hideSideMenu;
             };
             this.drawParty();
         };
-        ed.prototype.handlePartyJoinCode = function (ac) {
+        ed.prototype.handlePartyJoinCode = function(ac) {
             var ab = fj(ac);
             this.partyCode = fj(ac);
             if (this.partyCode.length != 0) {
@@ -3577,7 +3577,7 @@ var version, showSideMenu, hideSideMenu;
                 window.history.pushState('page', '', ' ');
             }
         };
-        ed.prototype.handleStats = function (ac) {
+        ed.prototype.handleStats = function(ac) {
             var ab = ac.getUint16(ac.offset, true);;
             this.stats.name = fi(ac) || 'An unnamed cell';
             this.stats.alive += ac.getUint32(ac.offset, true);;
@@ -3598,7 +3598,7 @@ var version, showSideMenu, hideSideMenu;
             ah.append('<span>Viruses eaten: ' + this.stats.eatenVirus + ' (' + this.stats.gainVirus + ')</span><br>');
             ah.append('<span>Player cells eaten: ' + this.stats.eatenPlayer + ' (' + this.stats.gainPlayer + ')</span><br>');
         };
-        ed.prototype.showSubPanel = function (ah) {
+        ed.prototype.showSubPanel = function(ah) {
             var ab = ah.getUint8(ah.offset++) == 1;
             this.subPanelOverride = ab;
             fb();
@@ -3610,36 +3610,36 @@ var version, showSideMenu, hideSideMenu;
                 document.body.classList.add('hide-captcha-badge');
             }
         };
-        ed.prototype.updateSubPanel = function (ab) {
+        ed.prototype.updateSubPanel = function(ab) {
             if (ch) {
                 fx(ch.uid);
             }
         };
-        ed.prototype.updateSpectators = function () {
+        ed.prototype.updateSpectators = function() {
             cx.spectatorCount.html(this.spectators);
         };
-        ed.prototype.handleAddBuff = function (af) {
+        ed.prototype.handleAddBuff = function(af) {
             var ab = af.getUint8(af.offset++);
             var ac = af.getUint8(af.offset++);
             var ah = af.getFloat64(af.offset, true);
             af.offset += 8;
             this.buffHolder.onAddBuff(ab, ac, ah);
         };
-        ed.prototype.handleRemoveBuff = function (ah) {
+        ed.prototype.handleRemoveBuff = function(ah) {
             var ab = ah.getUint8(ah.offset++);
             this.buffHolder.onRemoveBuff(ab);
         };
-        ed.prototype.handleClearBuffs = function (ah) {
+        ed.prototype.handleClearBuffs = function(ah) {
             var ab = ah.getUint8(ah.offset++) == 1 ? true : false;
             this.buffHolder.clearBuffs(ab);
         };
-        ed.prototype.sortCells = function () {
-            au.children.sort(function (ab, ah) {
+        ed.prototype.sortCells = function() {
+            au.children.sort(function(ab, ah) {
                 return ab.parentCell.size - ah.parentCell.size;
             });
             this.updateScorePanel();
         };
-        ed.prototype.updateScorePanel = function () {
+        ed.prototype.updateScorePanel = function() {
             var ah = 0;
             var ab = 0;
             for (var ac in this.myCells) {
@@ -3653,7 +3653,7 @@ var version, showSideMenu, hideSideMenu;
             };
             this.updateCellCounter(ab);
         };
-        ed.prototype.updateCellCounter = function (ab, ah) {
+        ed.prototype.updateCellCounter = function(ab, ah) {
             if (cx.playerCellCount != ab || ah) {
                 ;
                 cx.playerCells.html(ab + '/' + this.getServerMaxCells());
@@ -3681,7 +3681,7 @@ var version, showSideMenu, hideSideMenu;
                 }
             }
         };
-        ed.prototype.drawParty = function () {
+        ed.prototype.drawParty = function() {
             if (this.party.length == 0) {
                 return;
             };
@@ -3743,14 +3743,14 @@ var version, showSideMenu, hideSideMenu;
                 ab.fillText(cl, ae, ad);
             }
         };
-        ed.prototype.handleShowScrimmageMenu = function () {
+        ed.prototype.handleShowScrimmageMenu = function() {
             bn.stop(true, false);
             bn.css('display', 'none');
             bs.css('display', 'block');
             $('#scrimmage-btn-leave').css('display', 'none');
             ba.serverData.border.enabled = false;
         };
-        ed.prototype.handleQueueData = function (ad) {
+        ed.prototype.handleQueueData = function(ad) {
             var ac = fj(ad);
             var ae = ad.getUint32(ad.offset, true);
             ad.offset += 4;
@@ -3771,14 +3771,14 @@ var version, showSideMenu, hideSideMenu;
                 ab.fillText('Queued players: ' + ag, 5, af);
             }
         };
-        ed.prototype.handleQueueLeave = function (ac) {
+        ed.prototype.handleQueueLeave = function(ac) {
             var ah = fj(ac);
             var ab = document.getElementById('leaderboard-canvas');
             ab.width = 0;
             ab.height = 0;
             this.selfMsg('You have left the queue for [' + ah + ']');
         };
-        ed.prototype.handleMatchState = function (ah) {
+        ed.prototype.handleMatchState = function(ah) {
             var ab = ah.byteLength == 1 ? 0 : ah.getUint8(ah.offset++);
             if (ab == 0) {
                 this.selfMsg('A match has been found. Good luck and have fun!');
@@ -3789,7 +3789,7 @@ var version, showSideMenu, hideSideMenu;
                 }
             }
         };
-        ed.prototype.handleScrimmageData = function (en) {
+        ed.prototype.handleScrimmageData = function(en) {
             var ab = en.getUint8(en.offset++);
             var am = $('#scrimmage-mode-select');
             var bx = $('#scrimmage-mode-info');
@@ -3878,61 +3878,61 @@ var version, showSideMenu, hideSideMenu;
                 am.trigger('change');
             }
         };
-        ed.prototype.handleCustomGameUpdate = function (ag) {
+        ed.prototype.handleCustomGameUpdate = function(ag) {
             var ac = ag.getUint8(ag.offset++);
             switch (ac) {
-            case 0:
-                ScrimmageHelper.updateMap(ag.getUint8(ag.offset++));
-                break;
-            case 1:
-                ScrimmageHelper.updateMode(ag.getUint8(ag.offset++));
-                break;
-            case 2:
-                ScrimmageHelper.updateSize(ag.getUint8(ag.offset++));
-                break;
-            case 3:
-                ScrimmageHelper.updateStartMass(ag.getUint16(ag.offset, true));;
-                break;
-            case 4:
-                ScrimmageHelper.updateLock(ag.getUint8(ag.offset++) === 1 ? true : false);
-                break;
-            case 5:
-                var ah = ag.getUint8(ag.offset++);
-                var af = ag.getUint8(ag.offset++);
-                ba.party[ah].team = af;
-                ScrimmageHelper.updatePlayerById(ah);
-                break;
-            case 6:
-                var ab = ag.getUint8(ag.offset++);
-                var ah = 0;
-                while (ab > 0) {
-                    ba.party[ah].team = ag.getUint8(ag.offset++);
-                    ab--;
-                    ah++;
-                };
-                ScrimmageHelper.updatePlayers();
-                break;
-            case 7:
-                ScrimmageHelper.updateVirusDensity(ag.getUint16(ag.offset, true));;
-                break;
-            case 11:
-                ScrimmageHelper.updateRespawnDelay(ag.getInt16(ag.offset, true));;
-                break;
-            case 12:
-                ScrimmageHelper.updateAutoSplit(ag.getUint8(ag.offset++) === 1 ? true : false);
-                break;
-            case 8:
-                ScrimmageHelper.updatePublic(ag.getUint8(ag.offset++) === 1 ? true : false);
-                break;
-            case 9:
-                ScrimmageHelper.updatePassword(ag.getUint8(ag.offset++) === 1 ? true : false);
-                break;
-            case 10:
-                ScrimmageHelper.updateName(fi(ag));
-                break;
+                case 0:
+                    ScrimmageHelper.updateMap(ag.getUint8(ag.offset++));
+                    break;
+                case 1:
+                    ScrimmageHelper.updateMode(ag.getUint8(ag.offset++));
+                    break;
+                case 2:
+                    ScrimmageHelper.updateSize(ag.getUint8(ag.offset++));
+                    break;
+                case 3:
+                    ScrimmageHelper.updateStartMass(ag.getUint16(ag.offset, true));;
+                    break;
+                case 4:
+                    ScrimmageHelper.updateLock(ag.getUint8(ag.offset++) === 1 ? true : false);
+                    break;
+                case 5:
+                    var ah = ag.getUint8(ag.offset++);
+                    var af = ag.getUint8(ag.offset++);
+                    ba.party[ah].team = af;
+                    ScrimmageHelper.updatePlayerById(ah);
+                    break;
+                case 6:
+                    var ab = ag.getUint8(ag.offset++);
+                    var ah = 0;
+                    while (ab > 0) {
+                        ba.party[ah].team = ag.getUint8(ag.offset++);
+                        ab--;
+                        ah++;
+                    };
+                    ScrimmageHelper.updatePlayers();
+                    break;
+                case 7:
+                    ScrimmageHelper.updateVirusDensity(ag.getUint16(ag.offset, true));;
+                    break;
+                case 11:
+                    ScrimmageHelper.updateRespawnDelay(ag.getInt16(ag.offset, true));;
+                    break;
+                case 12:
+                    ScrimmageHelper.updateAutoSplit(ag.getUint8(ag.offset++) === 1 ? true : false);
+                    break;
+                case 8:
+                    ScrimmageHelper.updatePublic(ag.getUint8(ag.offset++) === 1 ? true : false);
+                    break;
+                case 9:
+                    ScrimmageHelper.updatePassword(ag.getUint8(ag.offset++) === 1 ? true : false);
+                    break;
+                case 10:
+                    ScrimmageHelper.updateName(fi(ag));
+                    break;
             }
         };
-        ed.prototype.handleCustomGameShow = function (aw) {
+        ed.prototype.handleCustomGameShow = function(aw) {
             $('.scrimmage-full').css('display', 'none');
             $('#scrimmage-custom').css('display', 'block');
             var ad = fi(aw);
@@ -3970,11 +3970,11 @@ var version, showSideMenu, hideSideMenu;
             ScrimmageHelper.updatePlayers();
             ScrimmageHelper.checkLeader();
         };
-        ed.prototype.handleCustomGameLeave = function () {
+        ed.prototype.handleCustomGameLeave = function() {
             $('.scrimmage-full').css('display', 'none');
             $('#scrimmage-menu').css('display', 'block');
         };
-        ed.prototype.handleShowCustomGameLobbies = function (ag) {
+        ed.prototype.handleShowCustomGameLobbies = function(ag) {
             $('.scrimmage-full').css('display', 'none');
             $('#scrimmage-lobbies').css('display', 'block');
             ca = {};
@@ -4000,17 +4000,17 @@ var version, showSideMenu, hideSideMenu;
                 var ah = ab.hasPasscode ? '<div class=\'scrimmage-lock\'></div>' : '';
                 af.append('<tr partyId=\'' + ab.id + '\'><td><span>' + ah + ab.name.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</span></td><td><span>' + ab.leaderName.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</span></td><td><span>' + bz.maps[ab.map].name + '</span></td><td><span>' + bz.modes[ab.mode].name + '</span></td><td><span>' + ab.size + '/' + ab.maxSize + '</span></td></tr>');
             };
-            $('#scrimmage-lobbies-tbody tr').on('click', function () {
+            $('#scrimmage-lobbies-tbody tr').on('click', function() {
                 $('.custom-game-selected').removeClass('custom-game-selected');
                 bm = $(this).attr('partyId');
                 $(this).addClass('custom-game-selected');
             });
         };
         ScrimmageHelper = {
-            updateName: function (ab) {
+            updateName: function(ab) {
                 $('#scrimmage-name').text(ab);
             },
-            updateMap: function (ah) {
+            updateMap: function(ah) {
                 $('#scrimmage-map option[value=\'' + ah + '\']').prop('selected', true);
                 var ac = bz.maps[ah];
                 $('#scrimmage-mapmode').empty();
@@ -4031,47 +4031,47 @@ var version, showSideMenu, hideSideMenu;
                 $('#scrimmage-map').attr('data', ah);
                 ba.customGameMap = ac;
             },
-            updateMode: function (ab) {
+            updateMode: function(ab) {
                 $('#scrimmage-mapmode option[value=\'' + ab + '\']').prop('selected', true);
                 $('#scrimmage-mapmode').attr('data', ab);
             },
-            updateSize: function (ab) {
+            updateSize: function(ab) {
                 $('#scrimmage-mapsize option[value=\'' + ab + '\']').prop('selected', true);
                 $('#scrimmage-mapsize').attr('data', ab);
             },
-            updateStartMass: function (ab) {
+            updateStartMass: function(ab) {
                 $('#scrimmage-startmass').val(ab);
                 $('#scrimmage-startmass').attr('data', ab);
             },
-            updateVirusDensity: function (ab) {
+            updateVirusDensity: function(ab) {
                 $('#scrimmage-virusDensity').val(ab);
                 $('#scrimmage-virusDensity').attr('data', ab);
             },
-            updateRespawnDelay: function (ab) {
+            updateRespawnDelay: function(ab) {
                 $('#scrimmage-respawnDelay').val(ab);
                 $('#scrimmage-respawnDelay').attr('data', ab);
             },
-            updateAutoSplit: function (ab) {
+            updateAutoSplit: function(ab) {
                 $('#scrimmage-autoSplit').prop('checked', ab);
             },
-            updatePublic: function (ab) {
+            updatePublic: function(ab) {
                 $('#scrimmage-public').prop('checked', ab);
             },
-            updatePassword: function (ab) {
+            updatePassword: function(ab) {
                 $('#scrimmage-password').prop('checked', ab);
             },
-            updateLock: function (ab) {
+            updateLock: function(ab) {
                 $('#scrimmage-lockteams').prop('checked', ab);
                 ScrimmageHelper.checkLock();
             },
-            checkLock: function () {
+            checkLock: function() {
                 if ($('#scrimmage-lockteams').prop('checked') && !ba.isPartyLeader()) {
                     $('#cgp-' + ba.partyIndex).attr('disabled', 'disabled');
                 } else {
                     $('#cgp-' + ba.partyIndex).removeAttr('disabled');
                 }
             },
-            checkLeader: function () {
+            checkLeader: function() {
                 if (ba.isPartyLeader()) {
                     $('.custom-game').removeAttr('disabled');
                 } else {
@@ -4079,13 +4079,13 @@ var version, showSideMenu, hideSideMenu;
                     ScrimmageHelper.checkLock();
                 }
             },
-            updatePlayerById: function (ab) {
+            updatePlayerById: function(ab) {
                 var ah = ba.party[ab];
                 $('#cgp-' + ab + ' option[value=\'' + ah.team + '\']').prop('selected', true);
                 $('#cgp-name-' + ab).text(ah.name);
                 $('#cgp-name-' + ab).css('color', fz[ah.team]);
             },
-            updatePlayers: function () {
+            updatePlayers: function() {
                 $('#scrimmage-custom-players').empty();
                 for (var ab = 0; ab < ba.party.length; ab++) {
                     var ah = ba.party[ab];
@@ -4095,7 +4095,7 @@ var version, showSideMenu, hideSideMenu;
                     $('#scrimmage-custom-players').append('<tr><td><span id=\'cgp-name-' + ab + '\'>' + ah.name + '</span></td>' + ScrimmageHelper.getTeamOptions(ab, ba.customGameMap.teams) + '</tr>');
                     $('#cgp-' + ab + ' option[value=\'' + ah.team + '\']').prop('selected', true);
                     $('#cgp-name-' + ab).css('color', fz[ah.team]);
-                    $('#cgp-' + ab).on('change', function (ah) {
+                    $('#cgp-' + ab).on('change', function(ah) {
                         var ac = parseInt($(this).attr('id').match('\\d+')[0]);
                         var af = $(this).find('option:selected').val();
                         $('#cgp-' + ab + ' option[value=\'' + $(this).attr('data') + '\']').prop('selected', true);
@@ -4104,7 +4104,7 @@ var version, showSideMenu, hideSideMenu;
                 };
                 ScrimmageHelper.checkLeader();
             },
-            getTeamOptions: function (ah, af) {
+            getTeamOptions: function(ah, af) {
                 var ac = '';
                 if (af != null && af > 1) {
                     ac = '<td><select class=\'custom-game\' id=\'cgp-' + ah + '\'><option value=\'0\'>Spectator</option>';
@@ -4134,40 +4134,40 @@ var version, showSideMenu, hideSideMenu;
             this.massLastAmount = -1;
             this.cache = null;
         }
-        fl.prototype.setType = function (ab) {
+        fl.prototype.setType = function(ab) {
             this.type = ab;
         };
-        fl.prototype.setX = function (ab) {
+        fl.prototype.setX = function(ab) {
             this.x_ = ab;
             this.x = ab;
         };
-        fl.prototype.setY = function (ab) {
+        fl.prototype.setY = function(ab) {
             this.y_ = ab;
             this.y = ab;
         };
-        fl.prototype.updateX = function (ab) {
+        fl.prototype.updateX = function(ab) {
             this.x_ = ab;
         };
-        fl.prototype.updateY = function (ab) {
+        fl.prototype.updateY = function(ab) {
             this.y_ = ab;
         };
-        fl.prototype.setSize = function (ab) {
+        fl.prototype.setSize = function(ab) {
             this.size_ = ab;
             this.size = ab;
         };
-        fl.prototype.getMass = function () {
+        fl.prototype.getMass = function() {
             return this.size * this.size / 25 >> 0;
         };
-        fl.prototype.getRealMass = function () {
+        fl.prototype.getRealMass = function() {
             return this.size_ * this.size_ / 25 >> 0;
         };
-        fl.prototype.animate = function (ab) {
+        fl.prototype.animate = function(ab) {
             this.x += (this.x_ - this.x) * ab;
             this.y += (this.y_ - this.y) * ab;
             this.size += (this.size_ - this.size) * ab;
             this.steps--;
         };
-        fl.prototype.getSizeCache = function () {
+        fl.prototype.getSizeCache = function() {
             var ae = this.getMass();
             if (ae != this.massLastAmount || this.massLastAmount < 0) {
                 var ad;
@@ -4214,7 +4214,7 @@ var version, showSideMenu, hideSideMenu;
             };
             return this.cache;
         };
-        fl.prototype.toShortString = function (ah) {
+        fl.prototype.toShortString = function(ah) {
             if (ah < 1000) {
                 return ah.toString();
             } else {
@@ -4241,22 +4241,22 @@ var version, showSideMenu, hideSideMenu;
             this.cacheContainer = new aj.Container();
             this.sprites = [];
             this.spritesIndex = 0;
-            this.getNumber = function (ab) {
+            this.getNumber = function(ab) {
                 return this.cache[ab];
             };
-            this.clearCacheContainer = function () {
+            this.clearCacheContainer = function() {
                 while (this.cacheContainer.children[0]) {
                     this.cacheContainer.removeChild(this.cacheContainer.children[0]);
                 };
                 this.spritesIndex = 0;
             };
-            this.getSizeCacheSprite = function () {
+            this.getSizeCacheSprite = function() {
                 while (this.spritesIndex >= this.sprites.length) {
                     this.sprites.push(new aj.Sprite());
                 };
                 return this.sprites[this.spritesIndex++];
             };
-            this.buildSizeCache = function () {
+            this.buildSizeCache = function() {
                 var ab = [
                     '0',
                     '1',
@@ -4288,7 +4288,7 @@ var version, showSideMenu, hideSideMenu;
             };
         }
         const fu = new gd();
-        fl.prototype.handleFood = function () {
+        fl.prototype.handleFood = function() {
             if (this.needsPixiUpdate && this.sprite.visible) {
                 this.sprite.texture = cw;
                 this.sprite.anchor.set(0.5);
@@ -4303,225 +4303,225 @@ var version, showSideMenu, hideSideMenu;
             };
             this.sprite.position.set(this.x, this.y);
         };
-        fl.prototype.handle = function () {
+        fl.prototype.handle = function() {
             switch (this.type) {
-            case 0:
-                break;
-            case 1:
-                if (this.needsPixiUpdate) {
-                    if (this.skin >= 0 && this.skin < ge.length) {
-                        this.sprite.texture = ge[this.skin];
-                    } else {
-                        this.sprite.texture = cv;
-                    };
-                    this.sprite.tint = this.color;
-                    this.sprite.width = this.size * 2;
-                    this.sprite.height = this.size * 2;
-                    this.needsPixiUpdate = false;
-                };
-                if (this.rainbow) {
-                    this.sprite.tint = gf[Math.floor(bc % gg / 100)];
-                };
-                this.sprite.position.set(this.x, this.y);
-                break;
-            case 2:
-                var ac = ba.playerRegistry.getPlayerById(this.playerId);
-                var af = 3;
-                if (ba.playerId == this.playerId) {
-                    af = 1;
-                } else {
-                    if (ba.partyIds[this.playerId] != null) {
-                        af = 2;
-                    }
-                };
-                let ab = this.needsPixiUpdate;
-                if (this.needsPixiUpdate) {
-                    this.cellSprite = new aj.Sprite(aj.Texture.EMPTY);
-                    this.cellSprite.anchor.set(0.5);
-                    this.cellSprite.width = cr;
-                    this.cellSprite.height = cr;
-                    this.container.addChild(this.cellSprite);
-                    this.skinSprite = new aj.Sprite(aj.Texture.EMPTY);
-                    this.skinSprite.anchor.set(0.5);
-                    this.skinSprite.width = cr;
-                    this.skinSprite.height = cr;
-                    this.container.addChild(this.skinSprite);
-                    this.massSprite = new aj.Sprite(aj.Texture.EMPTY);
-                    this.container.addChild(this.massSprite);
-                    if (ac.name.length > 0) {
-                        this.nameSprite = new aj.Sprite(aj.Texture.EMPTY);
-                        this.container.addChild(this.nameSprite);
-                    };
-                    this.needsPixiUpdate = false;
-                };
-                if (ac.cacheUpdate || ab) {
-                    if (this.nameSprite) {
-                        this.nameSprite.texture = ac.getNameCache(ac.cacheUpdate).texture;
-                        this.nameSprite.texture.update();
-                    };
-                    if (ac.spiked == 1) {
-                        if (null) {
-                            this.cellSprite.texture = null;
+                case 0:
+                    break;
+                case 1:
+                    if (this.needsPixiUpdate) {
+                        if (this.skin >= 0 && this.skin < ge.length) {
+                            this.sprite.texture = ge[this.skin];
                         } else {
-                            this.cellSprite.texture = bi;
+                            this.sprite.texture = cv;
                         };
-                        this.cellSprite.tint = 16777215;
+                        this.sprite.tint = this.color;
+                        this.sprite.width = this.size * 2;
+                        this.sprite.height = this.size * 2;
+                        this.needsPixiUpdate = false;
+                    };
+                    if (this.rainbow) {
+                        this.sprite.tint = gf[Math.floor(bc % gg / 100)];
+                    };
+                    this.sprite.position.set(this.x, this.y);
+                    break;
+                case 2:
+                    var ac = ba.playerRegistry.getPlayerById(this.playerId);
+                    var af = 3;
+                    if (ba.playerId == this.playerId) {
+                        af = 1;
                     } else {
-                        if (ac.spiked == 2) {
+                        if (ba.partyIds[this.playerId] != null) {
+                            af = 2;
+                        }
+                    };
+                    let ab = this.needsPixiUpdate;
+                    if (this.needsPixiUpdate) {
+                        this.cellSprite = new aj.Sprite(aj.Texture.EMPTY);
+                        this.cellSprite.anchor.set(0.5);
+                        this.cellSprite.width = cr;
+                        this.cellSprite.height = cr;
+                        this.container.addChild(this.cellSprite);
+                        this.skinSprite = new aj.Sprite(aj.Texture.EMPTY);
+                        this.skinSprite.anchor.set(0.5);
+                        this.skinSprite.width = cr;
+                        this.skinSprite.height = cr;
+                        this.container.addChild(this.skinSprite);
+                        this.massSprite = new aj.Sprite(aj.Texture.EMPTY);
+                        this.container.addChild(this.massSprite);
+                        if (ac.name.length > 0) {
+                            this.nameSprite = new aj.Sprite(aj.Texture.EMPTY);
+                            this.container.addChild(this.nameSprite);
+                        };
+                        this.needsPixiUpdate = false;
+                    };
+                    if (ac.cacheUpdate || ab) {
+                        if (this.nameSprite) {
+                            this.nameSprite.texture = ac.getNameCache(ac.cacheUpdate).texture;
+                            this.nameSprite.texture.update();
+                        };
+                        if (ac.spiked == 1) {
                             if (null) {
                                 this.cellSprite.texture = null;
                             } else {
-                                this.cellSprite.texture = bj;
+                                this.cellSprite.texture = bi;
                             };
                             this.cellSprite.tint = 16777215;
                         } else {
-                            this.cellSprite.texture = cu;
-                            this.cellSprite.tint = ac.cellColor;
+                            if (ac.spiked == 2) {
+                                if (null) {
+                                    this.cellSprite.texture = null;
+                                } else {
+                                    this.cellSprite.texture = bj;
+                                };
+                                this.cellSprite.tint = 16777215;
+                            } else {
+                                this.cellSprite.texture = cu;
+                                this.cellSprite.tint = ac.cellColor;
+                            }
                         }
-                    }
-                };
-                this.skinSprite.visible = 3 >= af && ac.spiked == 0;
-                if (this.skinSprite.visible) {
-                    var ad = ac.getSkin();
-                    if (ad != null) {
-                        if (!ad.isGif) {
-                            if (ad !== this.skinSprite.texture) {
-                                this.skinSprite.texture = ad;
+                    };
+                    this.skinSprite.visible = 3 >= af && ac.spiked == 0;
+                    if (this.skinSprite.visible) {
+                        var ad = ac.getSkin();
+                        if (ad != null) {
+                            if (!ad.isGif) {
+                                if (ad !== this.skinSprite.texture) {
+                                    this.skinSprite.texture = ad;
+                                }
+                            } else {
+                                this.skinSprite.texture = ad.getTexture();
                             }
                         } else {
-                            this.skinSprite.texture = ad.getTexture();
+                            this.skinSprite.visible = false;
                         }
-                    } else {
-                        this.skinSprite.visible = false;
-                    }
-                };
-                var ag = 4 / this.size;
-                var bx = Math.max(ag, 0.16) * 4;
-                var ae = ba.scale >= ag * 4 || de.cDisableAutoNameHiding;
-                if (this.nameSprite) {
-                    this.nameSprite.visible = 3 >= af && ae;
-                    if (this.nameSprite.visible) {
-                        this.nameSprite.scale.set(bx);
-                        this.nameSprite.x = -(this.nameSprite.width / 2);
-                        if (!ac.lowerName) {
-                            this.nameSprite.y = -(this.nameSprite.height / 2);
-                        } else {
-                            this.nameSprite.y = ct - this.nameSprite.height / 2;
-                        };
-                        if (ac.effect == 1 && gh[0] != null) {
-                            if (!this.nameEffectSprite) {
-                                this.nameEffectSprite = new aj.Sprite(aj.Texture.EMPTY);
-                                this.nameSprite.addChild(this.nameEffectSprite);
+                    };
+                    var ag = 4 / this.size;
+                    var bx = Math.max(ag, 0.16) * 4;
+                    var ae = ba.scale >= ag * 4 || de.cDisableAutoNameHiding;
+                    if (this.nameSprite) {
+                        this.nameSprite.visible = 3 >= af && ae;
+                        if (this.nameSprite.visible) {
+                            this.nameSprite.scale.set(bx);
+                            this.nameSprite.x = -(this.nameSprite.width / 2);
+                            if (!ac.lowerName) {
+                                this.nameSprite.y = -(this.nameSprite.height / 2);
+                            } else {
+                                this.nameSprite.y = ct - this.nameSprite.height / 2;
                             };
-                            var am = gh[0].getTexture();
-                            this.nameEffectSprite.scale.set(this.nameSprite.texture.width / am.width, this.nameSprite.texture.height / am.height);
-                            this.nameEffectSprite.texture = am;
+                            if (ac.effect == 1 && gh[0] != null) {
+                                if (!this.nameEffectSprite) {
+                                    this.nameEffectSprite = new aj.Sprite(aj.Texture.EMPTY);
+                                    this.nameSprite.addChild(this.nameEffectSprite);
+                                };
+                                var am = gh[0].getTexture();
+                                this.nameEffectSprite.scale.set(this.nameSprite.texture.width / am.width, this.nameSprite.texture.height / am.height);
+                                this.nameEffectSprite.texture = am;
+                            }
                         }
-                    }
-                };
-                if (de.cShowMass && (af <= 2 || ba.serverData.autosplits) && ae) {
-                    var ah = this.getSizeCache();
-                    this.massSprite.texture = ah;
-                    this.massSprite.scale.set(bx);
-                    this.massSprite.x = -(this.massSprite.width / 2);
-                    if (this.nameSprite != null && this.nameSprite.visible) {
-                        this.massSprite.y = this.nameSprite.y + this.nameSprite.height;
-                    } else {
-                        this.massSprite.y = -(this.massSprite.height / 2);
                     };
-                    this.massSprite.visible = true;
-                } else {
-                    this.massSprite.visible = false;
-                };
-                if ((ac.flags & 4) == 4) {
-                    if (!this.debuffSprite) {
-                        this.debuffSprite = new aj.Sprite(gi);
-                        this.debuffSprite.anchor.set(0.5);
-                        this.debuffSprite.width = cs;
-                        this.debuffSprite.height = cs;
-                        this.container.addChild(this.debuffSprite);
-                    }
-                } else {
-                    if (this.debuffSprite) {
-                        this.debuffSprite.parent.removeChild(this.debuffSprite);
-                        this.debuffSprite.destroy();
-                        this.debuffSprite = null;
-                    }
-                };
-                if ((ac.flags & 1) == 1) {
-                    if (!this.shieldSprite) {
-                        this.shieldSprite = new aj.Sprite(gj);
-                        this.shieldSprite.anchor.set(0.5);
-                        this.shieldSprite.width = cs;
-                        this.shieldSprite.height = cs;
-                        this.container.addChild(this.shieldSprite);
-                    }
-                } else {
-                    if (this.shieldSprite) {
-                        this.shieldSprite.parent.removeChild(this.shieldSprite);
-                        this.shieldSprite.destroy();
-                        this.shieldSprite = null;
-                    }
-                };
-                this.container.scale.set(this.size / 128);
-                this.container.position.set(this.x, this.y);
-                break;
-            case 3:
-                if (this.needsPixiUpdate) {
-                    this.sprite.anchor.set(0.5);
-                    this.sprite.width = 128;
-                    this.sprite.height = 128;
-                    if (null) {
-                        this.sprite.texture = null;
+                    if (de.cShowMass && (af <= 2 || ba.serverData.autosplits) && ae) {
+                        var ah = this.getSizeCache();
+                        this.massSprite.texture = ah;
+                        this.massSprite.scale.set(bx);
+                        this.massSprite.x = -(this.massSprite.width / 2);
+                        if (this.nameSprite != null && this.nameSprite.visible) {
+                            this.massSprite.y = this.nameSprite.y + this.nameSprite.height;
+                        } else {
+                            this.massSprite.y = -(this.massSprite.height / 2);
+                        };
+                        this.massSprite.visible = true;
                     } else {
-                        this.sprite.texture = bi;
+                        this.massSprite.visible = false;
                     };
-                    this.needsPixiUpdate = false;
-                };
-                this.sprite.scale.set(this.size / 256);
-                this.sprite.position.set(this.x, this.y);
-                break;
-            case 4:
-                if (this.needsPixiUpdate) {
-                    if (null) {
-                        this.sprite.texture = null;
+                    if ((ac.flags & 4) == 4) {
+                        if (!this.debuffSprite) {
+                            this.debuffSprite = new aj.Sprite(gi);
+                            this.debuffSprite.anchor.set(0.5);
+                            this.debuffSprite.width = cs;
+                            this.debuffSprite.height = cs;
+                            this.container.addChild(this.debuffSprite);
+                        }
                     } else {
-                        this.sprite.texture = bj;
+                        if (this.debuffSprite) {
+                            this.debuffSprite.parent.removeChild(this.debuffSprite);
+                            this.debuffSprite.destroy();
+                            this.debuffSprite = null;
+                        }
                     };
-                    if (cy.enabled && cy.motherCustomEnabled && !de.cDisableEventSkins && !null) {
-                        cy.motherCustom(this);
+                    if ((ac.flags & 1) == 1) {
+                        if (!this.shieldSprite) {
+                            this.shieldSprite = new aj.Sprite(gj);
+                            this.shieldSprite.anchor.set(0.5);
+                            this.shieldSprite.width = cs;
+                            this.shieldSprite.height = cs;
+                            this.container.addChild(this.shieldSprite);
+                        }
                     } else {
-                        this.setDefaultSpriteAnchor();
+                        if (this.shieldSprite) {
+                            this.shieldSprite.parent.removeChild(this.shieldSprite);
+                            this.shieldSprite.destroy();
+                            this.shieldSprite = null;
+                        }
                     };
-                    this.needsPixiUpdate = false;
-                };
-                if (!null && cy.enabled) {
-                    if (this.size >= 100 && !de.cDisableEventSkins) {
-                        this.sprite.texture = bk;
-                    } else {
-                        this.sprite.texture = bj;
-                    }
-                };
-                this.sprite.scale.set(this.size / 256);
-                this.sprite.position.set(this.x, this.y);
-                break;
-            case 5:
-                if (this.needsPixiUpdate) {
-                    this.sprite.texture = gk[this.buff].texture;
-                    this.sprite.width = this.size * 2;
-                    this.sprite.height = this.size * 2;
-                    this.needsPixiUpdate = false;
-                };
-                this.sprite.position.set(this.x, this.y);
-                break;
+                    this.container.scale.set(this.size / 128);
+                    this.container.position.set(this.x, this.y);
+                    break;
+                case 3:
+                    if (this.needsPixiUpdate) {
+                        this.sprite.anchor.set(0.5);
+                        this.sprite.width = 128;
+                        this.sprite.height = 128;
+                        if (null) {
+                            this.sprite.texture = null;
+                        } else {
+                            this.sprite.texture = bi;
+                        };
+                        this.needsPixiUpdate = false;
+                    };
+                    this.sprite.scale.set(this.size / 256);
+                    this.sprite.position.set(this.x, this.y);
+                    break;
+                case 4:
+                    if (this.needsPixiUpdate) {
+                        if (null) {
+                            this.sprite.texture = null;
+                        } else {
+                            this.sprite.texture = bj;
+                        };
+                        if (cy.enabled && cy.motherCustomEnabled && !de.cDisableEventSkins && !null) {
+                            cy.motherCustom(this);
+                        } else {
+                            this.setDefaultSpriteAnchor();
+                        };
+                        this.needsPixiUpdate = false;
+                    };
+                    if (!null && cy.enabled) {
+                        if (this.size >= 100 && !de.cDisableEventSkins) {
+                            this.sprite.texture = bk;
+                        } else {
+                            this.sprite.texture = bj;
+                        }
+                    };
+                    this.sprite.scale.set(this.size / 256);
+                    this.sprite.position.set(this.x, this.y);
+                    break;
+                case 5:
+                    if (this.needsPixiUpdate) {
+                        this.sprite.texture = gk[this.buff].texture;
+                        this.sprite.width = this.size * 2;
+                        this.sprite.height = this.size * 2;
+                        this.needsPixiUpdate = false;
+                    };
+                    this.sprite.position.set(this.x, this.y);
+                    break;
             }
         };
-        fl.prototype.setDefaultSpriteAnchor = function () {
+        fl.prototype.setDefaultSpriteAnchor = function() {
             this.sprite.anchor.set(0.5);
             this.sprite.width = 128;
             this.sprite.height = 128;
         };
-        fl.prototype.onCreate = function (ab) {
+        fl.prototype.onCreate = function(ab) {
             if (this.type == 2) {
                 if (this.container) {
                     return;
@@ -4553,7 +4553,7 @@ var version, showSideMenu, hideSideMenu;
                 ab.myCells[this.id] = this;
             }
         };
-        fl.prototype.onDelete = function () {
+        fl.prototype.onDelete = function() {
             if (this.container) {
                 this.container.parent.removeChild(this.container);
                 this.container.parentCell = null;
@@ -4581,35 +4581,35 @@ var version, showSideMenu, hideSideMenu;
             this.bucket = {};
             this.defaultData;
             this.updatedPlayers = [];
-            this.init = function () {
+            this.init = function() {
                 this.defaultData = new fh(0);
                 this.defaultData.name = '';
                 this.defaultData.cellColor = 11184810;
             };
-            this.add = function (ab) {
+            this.add = function(ab) {
                 this.bucket[ab.id] = ab;
             };
-            this.remove = function (ab) {
+            this.remove = function(ab) {
                 this.bucket[ab].onDelete();
                 delete this.bucket[ab];
             };
-            this.clear = function () {
+            this.clear = function() {
                 for (var ab in this.bucket) {
                     this.remove(ab);
                 }
             };
-            this.getPlayer = function (ab) {
+            this.getPlayer = function(ab) {
                 return this.bucket[ab];
             };
-            this.getPlayerById = function (ah) {
+            this.getPlayerById = function(ah) {
                 var ab = this.bucket[ah];
                 return ab != null ? ab : this.defaultData;
             };
-            this.updatePlayer = function (ab) {
+            this.updatePlayer = function(ab) {
                 ab.cacheUpdate = true;
                 this.updatedPlayers.push(ab);
             };
-            this.handleUpdatedPlayers = function () {
+            this.handleUpdatedPlayers = function() {
                 while (this.updatedPlayers.length > 0) {
                     var ab = this.updatedPlayers.shift();
                     ab.cacheUpdate = false;
@@ -4632,7 +4632,7 @@ var version, showSideMenu, hideSideMenu;
             this.nameCache = null;
             this.cacheUpdate = false;
             this.spiked = 0;
-            this.setFlags = function (ab) {
+            this.setFlags = function(ab) {
                 this.flags = ab;
                 if ((this.flags & 8) == 8) {
                     this.spiked = 1;
@@ -4644,7 +4644,7 @@ var version, showSideMenu, hideSideMenu;
                     }
                 }
             };
-            this.parseEffect = function (ab) {
+            this.parseEffect = function(ab) {
                 if (ab >= 64) {
                     ab -= 64;
                     this.lowerName = true;
@@ -4653,7 +4653,7 @@ var version, showSideMenu, hideSideMenu;
                 };
                 this.effect = ab;
             };
-            this.getNameCache = function (ab) {
+            this.getNameCache = function(ab) {
                 if (ab || this.nameCache == null) {
                     var ah = gl(this.nameFont);
                     var af, ac;
@@ -4686,7 +4686,7 @@ var version, showSideMenu, hideSideMenu;
                 };
                 return this.nameCache;
             };
-            this.setSkin = function (ab) {
+            this.setSkin = function(ab) {
                 if (ab.length == 0) {
                     this.skin = null;
                     this.skinCache = null;
@@ -4697,7 +4697,7 @@ var version, showSideMenu, hideSideMenu;
                     }
                 }
             };
-            this.getSkin = function () {
+            this.getSkin = function() {
                 if (this.skinCache != null) {
                     return this.skinCache;
                 };
@@ -4712,19 +4712,19 @@ var version, showSideMenu, hideSideMenu;
                                 frames: 'all',
                                 cumulative: false,
                                 outputType: 'canvas'
-                            }).then(function (ab) {
+                            }).then(function(ab) {
                                 var ah = new go();
                                 ah.loadFromFrameData(ab);
                                 bf[ac] = gn.LOADED;
                                 bd[ac] = ah;
-                            }).catch(function (ah) {
+                            }).catch(function(ah) {
                                 ab.skin = null;
                             });
                         } else {
                             var ah = new Image();
                             ah.crossOrigin = '';
                             var ac = this.skin;
-                            ah.addEventListener('load', function () {
+                            ah.addEventListener('load', function() {
                                 var ab = document.createElement('canvas');
                                 ab.width = 512;
                                 ab.height = 512;
@@ -4738,7 +4738,7 @@ var version, showSideMenu, hideSideMenu;
                                 bf[ac] = gn.LOADED;
                                 bd[ac] = ag;
                             });
-                            ah.addEventListener('error', function () {
+                            ah.addEventListener('error', function() {
                                 bf[ac] = gn.ERROR;
                             });
                             ah.src = ac;
@@ -4756,7 +4756,7 @@ var version, showSideMenu, hideSideMenu;
                 };
                 return null;
             };
-            this.onDelete = function () {
+            this.onDelete = function() {
                 if (this.nameCache) {
                     this.nameCache.destroy();
                 }
@@ -4764,7 +4764,7 @@ var version, showSideMenu, hideSideMenu;
         }
 
         function ee() {}
-        ee.prototype.connectionStart = function () {
+        ee.prototype.connectionStart = function() {
             var ah = 'Gota Web ' + version;
             var ab = new ArrayBuffer(1 + ah.length + 1 + 1);
             var ac = new DataView(ab);
@@ -4773,7 +4773,7 @@ var version, showSideMenu, hideSideMenu;
             gp(2, ac, ah);
             return ab;
         };
-        ee.prototype.setName = function (ah) {
+        ee.prototype.setName = function(ah) {
             var ab = new ArrayBuffer(2 + (ah.length + 1) * 2);
             var ac = new DataView(ab);
             ac.setUint8(0, 0);
@@ -4783,13 +4783,13 @@ var version, showSideMenu, hideSideMenu;
             };
             return ab;
         };
-        ee.prototype.sendKey = function (ah) {
+        ee.prototype.sendKey = function(ah) {
             var ab = new ArrayBuffer(1);
             var ac = new DataView(ab);
             ac.setUint8(0, ah);
             return ab;
         };
-        ee.prototype.sendMouse = function (ac, af) {
+        ee.prototype.sendMouse = function(ac, af) {
             var ab = new ArrayBuffer(9);
             var ah = new DataView(ab);
             ah.setUint8(0, 16);
@@ -4797,19 +4797,19 @@ var version, showSideMenu, hideSideMenu;
             ah.setInt32(5, af, true);
             return ab;
         };
-        ee.prototype.sendEjectMass = function (ah) {
+        ee.prototype.sendEjectMass = function(ah) {
             var ab = new ArrayBuffer(1);
             var ac = new DataView(ab);
             ac.setUint8(0, ah ? 3 : 4);
             return ab;
         };
-        ee.prototype.sendPing = function () {
+        ee.prototype.sendPing = function() {
             var ab = new ArrayBuffer(1);
             var ah = new DataView(ab);
             ah.setUint8(0, 71);
             return ab;
         };
-        ee.prototype.sendSpectate = function (ah) {
+        ee.prototype.sendSpectate = function(ah) {
             var ab = new ArrayBuffer(3);
             var ac = new DataView(ab);
             ac.setUint8(0, 1);
@@ -4818,7 +4818,7 @@ var version, showSideMenu, hideSideMenu;
             };
             return ab;
         };
-        ee.prototype.sendChat = function (ac, ah) {
+        ee.prototype.sendChat = function(ac, ah) {
             var ab = new ArrayBuffer(2 + (ac.length + 1) * 2);
             var af = new DataView(ab);
             af.setUint8(0, 72);
@@ -4826,14 +4826,14 @@ var version, showSideMenu, hideSideMenu;
             gq(2, af, ac);
             return ab;
         };
-        ee.prototype.sendInviteResponse = function (ab) {
+        ee.prototype.sendInviteResponse = function(ab) {
             var ah = new ArrayBuffer(2);
             var ac = new DataView(ah);
             ac.setUint8(0, 41);
             ac.setUint8(1, ab ? 1 : 0);
             return ah;
         };
-        ee.prototype.sendPartyAction = function (ab, ac) {
+        ee.prototype.sendPartyAction = function(ab, ac) {
             var ah = new ArrayBuffer(6);
             var af = new DataView(ah);
             af.setUint8(0, 40);
@@ -4841,21 +4841,21 @@ var version, showSideMenu, hideSideMenu;
             af.setUint32(2, ac, true);
             return ah;
         };
-        ee.prototype.sendPartyJoin = function (ah) {
+        ee.prototype.sendPartyJoin = function(ah) {
             var ab = new ArrayBuffer(1 + ah.length + 1);
             var ac = new DataView(ab);
             ac.setUint8(0, 42);
             gp(1, ac, ah);
             return ab;
         };
-        ee.prototype.sendShowProfile = function (ah) {
+        ee.prototype.sendShowProfile = function(ah) {
             var ab = new ArrayBuffer(3);
             var ac = new DataView(ab);
             ac.setUint8(0, 103);
             ac.setUint16(1, ah, true);
             return ab;
         };
-        ee.prototype.sendWhisper = function (ah, ac) {
+        ee.prototype.sendWhisper = function(ah, ac) {
             var ab = new ArrayBuffer(5 + (ac.length + 1) * 2);
             var af = new DataView(ab);
             af.setUint8(0, 73);
@@ -4863,7 +4863,7 @@ var version, showSideMenu, hideSideMenu;
             gq(5, af, ac);
             return ab;
         };
-        ee.prototype.sendSubPanel = function () {
+        ee.prototype.sendSubPanel = function() {
             var ab = new ArrayBuffer(8 + (dl.skinName.length + 1));
             var ah = new DataView(ab);
             ah.setUint8(0, 10);
@@ -4877,21 +4877,21 @@ var version, showSideMenu, hideSideMenu;
             ah.setUint8(8 + dl.skinName.length, dl.nameFont);
             return ab;
         };
-        ee.prototype.sendLockedNameChange = function (ah) {
+        ee.prototype.sendLockedNameChange = function(ah) {
             var ab = new ArrayBuffer(1 + (ah.length + 1));
             var ac = new DataView(ab);
             ac.setUint8(0, 11);
             gp(1, ac, ah);
             return ab;
         };
-        ee.prototype.sendOptions = function () {
+        ee.prototype.sendOptions = function() {
             var ab = new ArrayBuffer(3);
             var ah = new DataView(ab);
             ah.setUint8(0, 104);
             ah.setUint16(1, de.rViewDistance, true);
             return ab;
         };
-        ee.prototype.sendQueue = function (ah) {
+        ee.prototype.sendQueue = function(ah) {
             var ab = new ArrayBuffer(5);
             var ac = new DataView(ab);
             ac.setUint8(0, 80);
@@ -4900,26 +4900,26 @@ var version, showSideMenu, hideSideMenu;
             ac.setUint16(3, 0);
             return ab;
         };
-        ee.prototype.sendCustomGame = function (ah) {
+        ee.prototype.sendCustomGame = function(ah) {
             var ab = new ArrayBuffer(2);
             var ac = new DataView(ab);
             ac.setUint8(0, 90);
             ac.setUint8(1, ah);
             return ab;
         };
-        ee.prototype.sendLeaveMatch = function () {
+        ee.prototype.sendLeaveMatch = function() {
             var ab = new ArrayBuffer(1);
             var ah = new DataView(ab);
             ah.setUint8(0, 81);
             return ab;
         };
-        ee.prototype.sendShowLobbies = function () {
+        ee.prototype.sendShowLobbies = function() {
             var ab = new ArrayBuffer(2);
             var ah = new DataView(ab);
             ah.setUint8(0, 93);
             return ab;
         };
-        ee.prototype.sendJoinLobby = function (ah, ac) {
+        ee.prototype.sendJoinLobby = function(ah, ac) {
             var ab = new ArrayBuffer(5 + ac.length * 2 + 2);
             var af = new DataView(ab);
             af.setUint8(0, 94);
@@ -4927,21 +4927,21 @@ var version, showSideMenu, hideSideMenu;
             gq(5, af, ac);
             return ab;
         };
-        ee.prototype.sendCaptcha = function (ah) {
+        ee.prototype.sendCaptcha = function(ah) {
             var ab = new ArrayBuffer(1 + (ah.length + 1));
             var ac = new DataView(ab);
             ac.setUint8(0, 100);
             gp(1, ac, ah);
             return ab;
         };
-        ee.prototype.sendAuthToken = function (ah) {
+        ee.prototype.sendAuthToken = function(ah) {
             var ab = new ArrayBuffer(1 + (ah.length + 1));
             var ac = new DataView(ab);
             ac.setUint8(0, 101);
             gp(1, ac, ah);
             return ab;
         };
-        ee.prototype.sendCustomGameUpdate = function (ah, ac, af) {
+        ee.prototype.sendCustomGameUpdate = function(ah, ac, af) {
             var ab = new ArrayBuffer(4);
             var ag = new DataView(ab);
             ag.setUint8(0, 91);
@@ -4958,7 +4958,7 @@ var version, showSideMenu, hideSideMenu;
             };
             return ab;
         };
-        ee.prototype.sendCustomGameUpdateString = function (ah, ac) {
+        ee.prototype.sendCustomGameUpdateString = function(ah, ac) {
             var ab = new ArrayBuffer(4 + ac.length * 2);
             var af = new DataView(ab);
             af.setUint8(0, 92);
@@ -5022,14 +5022,14 @@ var version, showSideMenu, hideSideMenu;
             console.error(ab.message, ab.code);
             if (ah) {
                 switch (ab.code) {
-                case 'auth/user-disabled':
-                    alert('This account has been permanently suspended by an administrator.');
-                    break;
-                case 'auth/popup-closed-by-user':
-                    break;
-                default:
-                    alert(ab.message + ' (' + ab.code + ')');
-                    break;
+                    case 'auth/user-disabled':
+                        alert('This account has been permanently suspended by an administrator.');
+                        break;
+                    case 'auth/popup-closed-by-user':
+                        break;
+                    default:
+                        alert(ab.message + ' (' + ab.code + ')');
+                        break;
                 }
             }
         }
@@ -5102,12 +5102,12 @@ var version, showSideMenu, hideSideMenu;
             ad.appendChild(aw);
             var ah = document.createElement('div');
             ah.className = 'actions';
-            fo.addEventListener('click', function (ab) {
+            fo.addEventListener('click', function(ab) {
                 fs(ao, $('#main-social'));
             });
             if (bx && am) {
                 var db = gu('input', 'Join Server');
-                db.addEventListener('click', function (ab) {
+                db.addEventListener('click', function(ab) {
                     dx(en);
                     ba.play();
                     ba.selfMsg(ao.username + '\'s ID is ' + ao.presence.id);
@@ -5118,7 +5118,7 @@ var version, showSideMenu, hideSideMenu;
             if (!bx) {
                 var af = gu('done', 'Add as Friend');
                 af.isHandlingRequest = false;
-                af.addEventListener('click', function (ah) {
+                af.addEventListener('click', function(ah) {
                     if (af.isHandlingRequest) {
                         return;
                     };
@@ -5154,7 +5154,7 @@ var version, showSideMenu, hideSideMenu;
             };
             var cl = gu('block', 'Remove Friend');
             cl.isHandlingRequest = false;
-            cl.addEventListener('click', function (ah) {
+            cl.addEventListener('click', function(ah) {
                 if (cl.isHandlingRequest || !confirm('Are you sure you want to remove "' + ao.username + '" as your friend?')) {
                     return;
                 };
@@ -5215,7 +5215,7 @@ var version, showSideMenu, hideSideMenu;
             };
             $('#profile-name').off('click');
             if (ac.uid == ch.uid) {
-                $('#profile-name').on('click', function () {
+                $('#profile-name').on('click', function() {
                     $('#popup-profile').hide();
                     ds($('#popup-account-username'));
                 });
@@ -5230,7 +5230,7 @@ var version, showSideMenu, hideSideMenu;
             };
             gs($('#profile-username'), ac);
             $('#profile-close-btn').off('click');
-            $('#profile-close-btn').on('click', function () {
+            $('#profile-close-btn').on('click', function() {
                 if (ah) {
                     ff(ah);
                 };
@@ -5246,7 +5246,7 @@ var version, showSideMenu, hideSideMenu;
             var ac = $('#social-friends .user-list')[0];
             var af = $('#social-friends .user-list')[1];
             $('#social-uid').text(ah.uid);
-            firebase.database().ref('/friendships/' + ah.uid).on('value', function (ad) {
+            firebase.database().ref('/friendships/' + ah.uid).on('value', function(ad) {
                 if (ad.val() === null) {
                     var bx = document.createElement('div');
                     var am = document.createElement('span');
@@ -5298,7 +5298,7 @@ var version, showSideMenu, hideSideMenu;
                     if (!ck.callbacks[ad]) {
                         var am = '/users/' + ad;
                         ck.callbacks[ad] = am;
-                        firebase.database().ref(am).on('value', function (af) {
+                        firebase.database().ref(am).on('value', function(af) {
                             if (af.val() === null) {
                                 return;
                             };
@@ -5328,7 +5328,7 @@ var version, showSideMenu, hideSideMenu;
                 });
                 $('#social-friends-count').text(ah);
             });
-            setInterval(function () {
+            setInterval(function() {
                 for (var ab in ck.timestamps) {
                     if (!ck.timestamps.hasOwnProperty(ab)) {
                         return;
@@ -5362,11 +5362,11 @@ var version, showSideMenu, hideSideMenu;
             if (cy.enabled && !de.cDisableEventSkins) {
                 $('body').toggleClass('event-' + cy.key);
             };
-            $('.server-tab').on('click', function () {
+            $('.server-tab').on('click', function() {
                 var ab = $(this).attr('region');
                 dy(ab);
             });
-            $('#btn-play').on('click', function () {
+            $('#btn-play').on('click', function() {
                 if (bl == null || Date.now() < cp) {
                     return;
                 };
@@ -5376,7 +5376,7 @@ var version, showSideMenu, hideSideMenu;
                 };
                 ba.spectate = false;
                 if (ha.incrementPlay() && typeof adplayer != 'undefined') {
-                    aiptag.cmd.player.push(function () {
+                    aiptag.cmd.player.push(function() {
                         adplayer.startPreRoll();
                     });
                     dt(bn);
@@ -5386,33 +5386,33 @@ var version, showSideMenu, hideSideMenu;
                     ba.play();
                 }
             });
-            $('#btn-servers').on('click', function () {
+            $('#btn-servers').on('click', function() {
                 ah('main-servers');
             });
-            $('#btn-options').on('click', function () {
+            $('#btn-options').on('click', function() {
                 ah('main-options');
             });
-            $('#btn-hotkeys').on('click', function () {
+            $('#btn-hotkeys').on('click', function() {
                 ah('main-hotkeys');
             });
-            $('#btn-themes').on('click', function () {
+            $('#btn-themes').on('click', function() {
                 ah('main-themes');
             });
-            $('#btn-cellpanel').on('click', function () {
+            $('#btn-cellpanel').on('click', function() {
                 ah('main-subpanel');
             });
-            $('#btn-reddit').on('click', function () {
+            $('#btn-reddit').on('click', function() {
                 window.open('https://www.reddit.com/r/PlayGotaIO/', '_blank');
             });
-            $('#btn-discord').on('click', function () {
+            $('#btn-discord').on('click', function() {
                 window.open('https://gota.io/discord', '_blank');
             });
-            $('#name-box').keypress(function (ab) {
+            $('#name-box').keypress(function(ab) {
                 if (ab.keyCode == 13 && $(this).is(':focus')) {
                     ba.play();
                 }
             });
-            $('#btn-spec').on('click', function () {
+            $('#btn-spec').on('click', function() {
                 if (bl == null || Date.now() < cp) {
                     return;
                 };
@@ -5422,7 +5422,7 @@ var version, showSideMenu, hideSideMenu;
                 };
                 ba.spectate = true;
                 if (ha.incrementPlay() && typeof adplayer != 'undefined') {
-                    aiptag.cmd.player.push(function () {
+                    aiptag.cmd.player.push(function() {
                         adplayer.startPreRoll();
                     });
                     dt(bn);
@@ -5432,7 +5432,7 @@ var version, showSideMenu, hideSideMenu;
                     ba.spec();
                 }
             });
-            $('#chat-input').keyup(function (ab) {
+            $('#chat-input').keyup(function(ab) {
                 var af = $(this).val();
                 var ag = af.split(' ');
                 if (ab.keyCode == 13 && $(this).is(':focus')) {
@@ -5492,7 +5492,7 @@ var version, showSideMenu, hideSideMenu;
                     }
                 }
             });
-            $('#autocomplete-panel').on('click', function (ab) {
+            $('#autocomplete-panel').on('click', function(ab) {
                 var ah = $('#chat-input').val().split(' ');
                 if (ab.target.nodeName === 'TD') {
                     hd('/' + ab.target.parentElement.children[0].innerHTML + ' ');
@@ -5508,7 +5508,7 @@ var version, showSideMenu, hideSideMenu;
                     }
                 }
             });
-            $('#animationDelay').on('change', function () {
+            $('#animationDelay').on('change', function() {
                 var ab = parseInt($(this).val());
                 if (isNaN(ab)) {
                     ab = 90;
@@ -5517,7 +5517,7 @@ var version, showSideMenu, hideSideMenu;
                 $('#animationDelay').val(de.rAnimationDelay);
                 $('#rAnimationDelay').val(de.rAnimationDelay);
             });
-            $('#viewDistance').on('change', function () {
+            $('#viewDistance').on('change', function() {
                 var ab = parseInt($(this).val());
                 if (isNaN(ab)) {
                     ab = 100;
@@ -5527,7 +5527,7 @@ var version, showSideMenu, hideSideMenu;
                 $('#rViewDistance').val(de.rViewDistance);
                 ba.sendOptions();
             });
-            $('#uiScale').on('change', function () {
+            $('#uiScale').on('change', function() {
                 var ab = parseInt($(this).val());
                 if (isNaN(ab)) {
                     ab = 100;
@@ -5539,14 +5539,14 @@ var version, showSideMenu, hideSideMenu;
                 $('.ui-scale').css('transform', 'scale(' + de.rUiScale + ')');
             });
             $('#chat-emote-btn').css('background-image', 'url(https://gota.io/emotes/' + he[Math.floor(Math.random() * he.length)] + '.png)');
-            $('#chat-emote-btn').on('click', function () {
+            $('#chat-emote-btn').on('click', function() {
                 $('#emote-panel').toggle();
             });
-            $('#emote-panel ul li img').on('click', function (ab) {
+            $('#emote-panel ul li img').on('click', function(ab) {
                 ag(ab.target.name + ' ');
                 $('#chat-input').focus();
             });
-            (function () {
+            (function() {
                 var ab = document.getElementById('chat-panel');
                 document.getElementById('chat-resize').addEventListener('mousedown', ac, false);
                 var ae, ad, ag, af;
@@ -5570,51 +5570,51 @@ var version, showSideMenu, hideSideMenu;
                     document.documentElement.removeEventListener('mouseup', bx, false);
                 }
             }());
-            $('.checkbox-options').on('change', function (aa) {
+            $('.checkbox-options').on('change', function(aa) {
                 hf($(this));
             });
-            $('.options-container select').on('change', function (aa) {
+            $('.options-container select').on('change', function(aa) {
                 hg($(this));
             });
-            $('.options-container input[type=range]').on('change', function (aa) {
+            $('.options-container input[type=range]').on('change', function(aa) {
                 hh($(this));
             });
-            $('#btn-changelog').on('click', function () {
+            $('#btn-changelog').on('click', function() {
                 dt($('#popup-changelog'));
                 ff(bn);
                 window.open('https://discord.com/channels/166703751053312000/630428963889741854', '_blank');
             });
-            $('#btn-close-changelog').on('click', function () {
+            $('#btn-close-changelog').on('click', function() {
                 dt($('#popup-changelog'));
                 ff(bn);
             });
-            $('#btn-accept').on('click', function () {
+            $('#btn-accept').on('click', function() {
                 ba.sendPacket(new bb.sendInviteResponse(true));
                 dt($('#popup-party'));
             });
-            $('#btn-decline').on('click', function () {
+            $('#btn-decline').on('click', function() {
                 ba.sendPacket(new bb.sendInviteResponse(false));
                 dt($('#popup-party'));
             });
-            $('#popup-party-code-content button').on('click', function () {
+            $('#popup-party-code-content button').on('click', function() {
                 $('#popup-party-code-content input').select();
                 document.execCommand('Copy');
                 $('#popup-party-code').hide();
             });
-            $('#menu-invite').on('click', function () {
+            $('#menu-invite').on('click', function() {
                 var ab = bt.data('selected');
                 ba.sendPacket(new bb.sendPartyAction(0, ab));
             });
-            $('#menu-whisper').on('click', function () {
+            $('#menu-whisper').on('click', function() {
                 var ab = bt.data('selected');
                 var ah = $('#chat-input').val();
                 $('#chat-input').val('/t ' + ab + ' ' + ah);
             });
-            $('#menu-profile').on('click', function () {
+            $('#menu-profile').on('click', function() {
                 var ab = bt.data('selected');
                 ba.sendPacket(new bb.sendShowProfile(ab));
             });
-            $('#menu-pu_pr').on('click', function () {
+            $('#menu-pu_pr').on('click', function() {
                 if (ba.partyCode == undefined) {
                     ba.sendPacket(new bb.sendPartyAction(4, 0));
                     $('#menu-pu_pr span').text('Private');
@@ -5623,30 +5623,30 @@ var version, showSideMenu, hideSideMenu;
                     $('#menu-pu_pr span').text('Public');
                 }
             });
-            $('#menu-promote').on('click', function () {
+            $('#menu-promote').on('click', function() {
                 var ab = bt.data('party') + 1;
                 if (ab >= 0) {
                     ba.sendPacket(new bb.sendPartyAction(2, ab));
                 }
             });
-            $('#menu-kick').on('click', function () {
+            $('#menu-kick').on('click', function() {
                 var ab = bt.data('party') + 1;
                 if (ab >= 0) {
                     ba.sendPacket(new bb.sendPartyAction(1, ab));
                 }
             });
-            $('#menu-spectate').on('click', function () {
+            $('#menu-spectate').on('click', function() {
                 var ab = bt.data('selected');
                 if (ab >= 0) {
                     ba.sendPacket(new bb.sendSpectate(ab));
                 }
             });
-            $('#menu-block').on('click', function () {
+            $('#menu-block').on('click', function() {
                 var ah = parseInt(bt.data('selected'));
                 var ab = en(ah);
                 ba.selfMsg(ab);
             });
-            $(document).on('click', function (ab) {
+            $(document).on('click', function(ab) {
                 bt.hide();
                 if (ab.target.id !== 'chat-emote-btn') {
                     $('#emote-panel').hide();
@@ -5655,7 +5655,7 @@ var version, showSideMenu, hideSideMenu;
                     $('#popup-party-code').hide();
                 }
             });
-            $('#aEditChatTabs').on('click', function (ab) {
+            $('#aEditChatTabs').on('click', function(ab) {
                 fm();
                 dt(bn);
                 ff($('#popup-chat-tab-editor'));
@@ -5664,13 +5664,13 @@ var version, showSideMenu, hideSideMenu;
             $('#btn-chat-tab-editor-add').on('click', hj);
             $('#btn-chat-tab-editor-remove').on('click', hk);
             $('#btn-chat-tab-editor-update').on('click', hl);
-            $('.custom-asset-skinner').on('click', function () {
+            $('.custom-asset-skinner').on('click', function() {
                 $('#popup-asset-skinner .title-text').text($(this).text());
                 $('#input-asset-skinner').attr('asset', $(this).attr('id')).val('');
                 dt(bn);
                 ff($('#popup-asset-skinner'));
             });
-            $('#btn-custom-asset-set').on('click', function () {
+            $('#btn-custom-asset-set').on('click', function() {
                 if (!de.cThemeEnabled) {
                     hm();
                 };
@@ -5683,7 +5683,7 @@ var version, showSideMenu, hideSideMenu;
                 };
                 $('#popup-asset-skinner .back-button').trigger('click');
             });
-            $('#btn-custom-asset-clear').on('click', function () {
+            $('#btn-custom-asset-clear').on('click', function() {
                 if (!de.cThemeEnabled) {
                     hm();
                 };
@@ -5692,7 +5692,7 @@ var version, showSideMenu, hideSideMenu;
                     hn(ab, '');
                 }
             });
-            $('#popup-asset-skinner').on('dragover', false).on('drop', function (ab) {
+            $('#popup-asset-skinner').on('dragover', false).on('drop', function(ab) {
                 if (!de.cThemeEnabled) {
                     hm();
                 };
@@ -5701,7 +5701,7 @@ var version, showSideMenu, hideSideMenu;
                     var ah = ho(ab.originalEvent);
                     if (/\.(jpe?g|png|gif)$/i.test(ah.name)) {
                         var af = new FileReader();
-                        af.addEventListener('load', function () {
+                        af.addEventListener('load', function() {
                             hn(ac, this.result);
                         }, false);
                         af.readAsDataURL(ah);
@@ -5709,34 +5709,34 @@ var version, showSideMenu, hideSideMenu;
                 };
                 return false;
             });
-            $('#btn-food-colors').on('click', function () {
+            $('#btn-food-colors').on('click', function() {
                 hp();
                 dt(bn);
                 ff($('#popup-food-colors'));
             });
-            $('#btn-theme-export').on('click', function () {
+            $('#btn-theme-export').on('click', function() {
                 if (!de.cThemeEnabled) {
                     return;
                 };;
                 var ab = JSON.stringify(da, null, 2);
                 hq('theme.json', ab, 'text/plain');
             });
-            $('#btn-theme-import').on('click', function () {
+            $('#btn-theme-import').on('click', function() {
                 $('#theme-import').trigger('click');
             });
-            $('#theme-import').on('change', function () {
+            $('#theme-import').on('change', function() {
                 var ah = $(this).prop('files');
                 if (ah.length > 0) {
                     var ab = ah[0];
                     hr(ab);
                 }
             });
-            $('#main-themes .options-container').on('dragover', false).on('drop', function (ab) {
+            $('#main-themes .options-container').on('dragover', false).on('drop', function(ab) {
                 var ah = ho(ab.originalEvent);
                 hr(ah);
                 return false;
             });
-            $('#cGlobalLeaderboard').on('change', function () {
+            $('#cGlobalLeaderboard').on('change', function() {
                 if (!ch || cm) {
                     return;
                 };
@@ -5765,10 +5765,10 @@ var version, showSideMenu, hideSideMenu;
                     cm = false;
                 });
             });
-            firebase.auth().onAuthStateChanged(function (ab) {
+            firebase.auth().onAuthStateChanged(function(ab) {
                 if (ab) {
                     if (!eg.consented) {
-                        firebase.auth().signOut().then(function () {});
+                        firebase.auth().signOut().then(function() {});
                         return;
                     };
                     hs();
@@ -5781,7 +5781,7 @@ var version, showSideMenu, hideSideMenu;
                     };
                     var ah = firebase.database().ref('users/' + ab.uid);
                     var af = false;
-                    ah.on('value', function (am) {
+                    ah.on('value', function(am) {
                         var ag = am.val();
                         if (!ag) {
                             return;
@@ -5799,14 +5799,14 @@ var version, showSideMenu, hideSideMenu;
                         $('#account-username').text(ag.username);
                         gs($('#account-username'), ag);
                         $('#account-level').html('Level ' + ag.levelData.level + '&nbsp;&nbsp;&nbsp;&nbsp;' + gw(ag.levelData.xp_current) + '/' + gw(ag.levelData.xp_needed) + ' XP');
-                        $('.xp-meter > span').each(function () {
+                        $('.xp-meter > span').each(function() {
                             var ab = ag.levelData.xp_current / ag.levelData.xp_needed * 100;
                             $(this).animate({
                                 width: ab + '%'
                             }, 1200);
                         });
                         if (!ba.accountListeners.loadServers) {
-                            ba.accountListeners.loadServers = firebase.database().ref('servers/account/' + ch.uid).on('value', function (ag) {
+                            ba.accountListeners.loadServers = firebase.database().ref('servers/account/' + ch.uid).on('value', function(ag) {
                                 var ab = ag.val();
                                 if (!ab) {
                                     return;
@@ -5869,7 +5869,7 @@ var version, showSideMenu, hideSideMenu;
                             }
                         };
                         if (!ba.accountListeners.loadPrivateData) {
-                            ba.accountListeners.loadPrivateData = firebase.database().ref('private/' + ab.uid).on('value', function (ag) {
+                            ba.accountListeners.loadPrivateData = firebase.database().ref('private/' + ab.uid).on('value', function(ag) {
                                 var ah = ag.val();
                                 if (!ah) {
                                     return;
@@ -5921,15 +5921,15 @@ var version, showSideMenu, hideSideMenu;
                     }
                 }
             });
-            $('#account-login').on('click', function () {
+            $('#account-login').on('click', function() {
                 if (eg.consented) {
-                    firebase.auth().signInWithPopup(ae).then(function (aa) {}).catch(aa => {
+                    firebase.auth().signInWithPopup(ae).then(function(aa) {}).catch(aa => {
                         return fe(aa, true);
                     });
                 }
             });
-            $('#account-logout').on('click', function () {
-                firebase.auth().signOut().then(function () {
+            $('#account-logout').on('click', function() {
+                firebase.auth().signOut().then(function() {
                     $('#authed').hide(500);
                     $('#guest').show();
                     $('#discordLinkStatus').hide();
@@ -5938,10 +5938,10 @@ var version, showSideMenu, hideSideMenu;
                     return fe(aa, true);
                 });
             });
-            $('#account-shop').on('click', function () {
+            $('#account-shop').on('click', function() {
                 window.open('https://store.gota.io/', '_blank');
             });
-            $('#account-social').on('click', function () {
+            $('#account-social').on('click', function() {
                 if (!ch) {
                     return;
                 };
@@ -5949,14 +5949,14 @@ var version, showSideMenu, hideSideMenu;
                 ff($('#main-social'));
                 dt($(bn));
             });
-            $('#social-back-button').on('click', function () {
+            $('#social-back-button').on('click', function() {
                 dt($('#main-social'));
                 ff($(bn));
             });
-            $('#account-profile').on('click', function () {
+            $('#account-profile').on('click', function() {
                 fs(ch, bn);
             });
-            $('#food-colors-close-btn').on('click', function () {
+            $('#food-colors-close-btn').on('click', function() {
                 ds(bn);
                 dt($('#popup-food-colors'));
             });
@@ -5970,7 +5970,7 @@ var version, showSideMenu, hideSideMenu;
                 $(ab).prop('disabled', true);
                 $(ab).text('...');
             }
-            $('#account-titles').on('change', function () {
+            $('#account-titles').on('change', function() {
                 if (cm) {
                     return;
                 };
@@ -5999,7 +5999,7 @@ var version, showSideMenu, hideSideMenu;
                     cm = false;
                 });
             });
-            $('#popup-message-read-btn').on('click', function () {
+            $('#popup-message-read-btn').on('click', function() {
                 if (cm) {
                     return;
                 };
@@ -6028,7 +6028,7 @@ var version, showSideMenu, hideSideMenu;
                     cm = false;
                 });
             });
-            $('#account-set-username-btn').on('click', function () {
+            $('#account-set-username-btn').on('click', function() {
                 if (!ch) {
                     return;
                 };
@@ -6069,11 +6069,11 @@ var version, showSideMenu, hideSideMenu;
                     fe(aa, true);
                 });
             });
-            $('.popup-panel .back-button').on('click', function () {
+            $('.popup-panel .back-button').on('click', function() {
                 ht();
                 ds(bn);
             });
-            $('#discordLink').on('click', function () {
+            $('#discordLink').on('click', function() {
                 if (!ch) {
                     return;
                 };
@@ -6081,7 +6081,7 @@ var version, showSideMenu, hideSideMenu;
                     window.open('https://accounts.gota.io/api/v1/options/discord/redirect?token=' + ab, 'popup', 'width=600,height=700');
                 });
             });
-            $('#discordUnlink').on('click', function () {
+            $('#discordUnlink').on('click', function() {
                 if (!ch) {
                     return;
                 };
@@ -6103,7 +6103,7 @@ var version, showSideMenu, hideSideMenu;
                     return fe(aa);
                 });
             });
-            $('#redeem-tokens').submit(function (ah) {
+            $('#redeem-tokens').submit(function(ah) {
                 ah.preventDefault();
                 if (!ch) {
                     return;
@@ -6136,10 +6136,10 @@ var version, showSideMenu, hideSideMenu;
                     return fe(aa);
                 });
             });
-            $('.error-banner').on('click', function () {
+            $('.error-banner').on('click', function() {
                 $(this).hide();
             });
-            $('#btn-add-friend').on('click', function (ah) {
+            $('#btn-add-friend').on('click', function(ah) {
                 ah.preventDefault();
                 if (!ch) {
                     return;
@@ -6173,7 +6173,7 @@ var version, showSideMenu, hideSideMenu;
                 });
             });
             document.getElementById('party-canvas').oncontextmenu = hu;
-            $(document).keyup(function (ab) {
+            $(document).keyup(function(ab) {
                 if (ab.keyCode == 13) {
                     var ah = $('#chat-input');
                     if (document.activeElement.tagName != 'INPUT') {
@@ -6189,17 +6189,17 @@ var version, showSideMenu, hideSideMenu;
                     }
                 }
             });
-            $(window).bind('beforeunload', function () {
+            $(window).bind('beforeunload', function() {
                 return 'Are you sure you want to leave Gota.io?';
             });
             hv();
-            $('.keybinds-btn').on('click', function () {
+            $('.keybinds-btn').on('click', function() {
                 $('.keybinds-btn').removeClass('keybinds-btn-selected');
                 $(this).addClass('keybinds-btn-selected');
                 dg = true;
             });
-            $('#btn-reset-keybinds').on('click', function () {
-                $('.keybinds-btn').each(function () {
+            $('#btn-reset-keybinds').on('click', function() {
+                $('.keybinds-btn').each(function() {
                     var ab = $(this);
                     var ah = ab.attr('id');
                     if (dh[ah] != null) {
@@ -6208,36 +6208,36 @@ var version, showSideMenu, hideSideMenu;
                     }
                 });
             });
-            $('#scrimmage-mode-select').on('change', function () {
+            $('#scrimmage-mode-select').on('change', function() {
                 $('#scrimmage-mode-info').children().css('display', 'none');
                 $('#scrimmage-info-' + $(this).val()).css('display', 'block');
             });
-            $('#btn-queue').on('click', function () {
+            $('#btn-queue').on('click', function() {
                 var ab = parseInt($('#scrimmage-mode-select').val());
                 var ah = isNaN(ab) ? 0 : Math.min(Math.max(ab, 0), 100);
                 ba.sendPacket(new bb.sendQueue(ah));
                 $(this).blur();
             });
-            $('#btn-leave-match').on('click', function () {
+            $('#btn-leave-match').on('click', function() {
                 ba.sendPacket(new bb.sendLeaveMatch());
             });
-            $('#btn-custom-create').on('click', function () {
+            $('#btn-custom-create').on('click', function() {
                 ba.sendPacket(new bb.sendCustomGame(0));
                 $(this).blur();
             });
-            $('#btn-custom-return').on('click', function () {
+            $('#btn-custom-return').on('click', function() {
                 ba.sendPacket(new bb.sendCustomGame(1));
             });
-            $('#btn-custom-start').on('click', function () {
+            $('#btn-custom-start').on('click', function() {
                 ba.sendPacket(new bb.sendCustomGame(2));
             });
-            $('#btn-custom-lobbies').on('click', function () {
+            $('#btn-custom-lobbies').on('click', function() {
                 ba.sendPacket(new bb.sendShowLobbies());
             });
-            $('#btn-lobbies-refresh').on('click', function () {
+            $('#btn-lobbies-refresh').on('click', function() {
                 ba.sendPacket(new bb.sendShowLobbies());
             });
-            $('#btn-lobbies-join').on('click', function () {
+            $('#btn-lobbies-join').on('click', function() {
                 if (bm === 0) {
                     return;
                 };
@@ -6255,11 +6255,11 @@ var version, showSideMenu, hideSideMenu;
                 };
                 ba.sendPacket(new bb.sendJoinLobby(ah, ac));
             });
-            $('#btn-lobbies-return').on('click', function () {
+            $('#btn-lobbies-return').on('click', function() {
                 $('.scrimmage-full').css('display', 'none');
                 $('#scrimmage-menu').css('display', 'block');
             });
-            $('#scrimmage-map').on('change', function (ah) {
+            $('#scrimmage-map').on('change', function(ah) {
                 var ac = $(this).find('option:selected').val();
                 var ab = $(this).attr('data');
                 if (ac != ab) {
@@ -6267,7 +6267,7 @@ var version, showSideMenu, hideSideMenu;
                     ba.sendPacket(new bb.sendCustomGameUpdate(0, ac));
                 }
             });
-            $('#scrimmage-mapmode').on('change', function (ah) {
+            $('#scrimmage-mapmode').on('change', function(ah) {
                 var ac = $(this).find('option:selected').val();
                 var ab = $(this).attr('data');
                 if (ac != ab) {
@@ -6275,7 +6275,7 @@ var version, showSideMenu, hideSideMenu;
                     ba.sendPacket(new bb.sendCustomGameUpdate(1, ac));
                 }
             });
-            $('#scrimmage-mapsize').on('change', function (ah) {
+            $('#scrimmage-mapsize').on('change', function(ah) {
                 var ac = $(this).find('option:selected').val();
                 var ab = $(this).attr('data');
                 if (ac != ab) {
@@ -6283,7 +6283,7 @@ var version, showSideMenu, hideSideMenu;
                     ba.sendPacket(new bb.sendCustomGameUpdate(2, ac));
                 }
             });
-            $('#scrimmage-startmass').on('change', function (ah) {
+            $('#scrimmage-startmass').on('change', function(ah) {
                 var ac = $(this).val();
                 var ab = $(this).attr('data');
                 if (isNaN(ac)) {
@@ -6296,7 +6296,7 @@ var version, showSideMenu, hideSideMenu;
                     ba.sendPacket(new bb.sendCustomGameUpdate(3, ac));
                 }
             });
-            $('#scrimmage-virusDensity').on('change', function (ah) {
+            $('#scrimmage-virusDensity').on('change', function(ah) {
                 var ac = $(this).val();
                 var ab = $(this).attr('data');
                 if (isNaN(ac)) {
@@ -6309,7 +6309,7 @@ var version, showSideMenu, hideSideMenu;
                     ba.sendPacket(new bb.sendCustomGameUpdate(7, ac));
                 }
             });
-            $('#scrimmage-respawnDelay').on('change', function (ah) {
+            $('#scrimmage-respawnDelay').on('change', function(ah) {
                 var ac = $(this).val();
                 var ab = $(this).attr('data');
                 if (isNaN(ac)) {
@@ -6322,22 +6322,22 @@ var version, showSideMenu, hideSideMenu;
                     ba.sendPacket(new bb.sendCustomGameUpdate(11, ac));
                 }
             });
-            $('#scrimmage-lockteams').on('change', function (ab) {
+            $('#scrimmage-lockteams').on('change', function(ab) {
                 var ah = $(this).prop('checked');
                 $(this).prop('checked', !ah);
                 ba.sendPacket(new bb.sendCustomGameUpdate(4, ah == true ? 1 : 0));
             });
-            $('#scrimmage-autoSplit').on('change', function (ab) {
+            $('#scrimmage-autoSplit').on('change', function(ab) {
                 var ah = $(this).prop('checked');
                 $(this).prop('checked', !ah);
                 ba.sendPacket(new bb.sendCustomGameUpdate(12, ah == true ? 1 : 0));
             });
-            $('#scrimmage-public').on('change', function (ab) {
+            $('#scrimmage-public').on('change', function(ab) {
                 var ah = $(this).prop('checked');
                 $(this).prop('checked', !ah);
                 ba.sendPacket(new bb.sendCustomGameUpdate(8, ah == true ? 1 : 0));
             });
-            $('#scrimmage-password').on('change', function (ab) {
+            $('#scrimmage-password').on('change', function(ab) {
                 var ac = $(this).prop('checked');
                 $(this).prop('checked', !ac);
                 var ah = '';
@@ -6349,7 +6349,7 @@ var version, showSideMenu, hideSideMenu;
                 };
                 ba.sendPacket(new bb.sendCustomGameUpdateString(9, ah));
             });
-            $('#scrimmage-name').on('click', function (ab) {
+            $('#scrimmage-name').on('click', function(ab) {
                 if (!ba.isPartyLeader()) {
                     return;
                 };
@@ -6366,13 +6366,13 @@ var version, showSideMenu, hideSideMenu;
             };
             cn = window.grecaptcha;
             window.grecaptcha = undefined;
-            cn.ready(function () {});
+            cn.ready(function() {});
         }
 
         function fd() {
             cn.execute('6LcycFwUAAAAANrun52k-J1_eNnF9zeLvgfJZSY3', {
                 action: 'login'
-            }).then(function (ab) {
+            }).then(function(ab) {
                 ba.sendPacket(new bb.sendCaptcha(ab));
                 document.body.classList.add('hide-captcha-badge');
                 if (!ba.spectate) {
@@ -6384,14 +6384,14 @@ var version, showSideMenu, hideSideMenu;
         }
 
         function ef() {
-            em(function (ab) {
+            em(function(ab) {
                 $('#' + ab).spectrum({
                     color: da[ab],
                     preferredFormat: 'hex',
                     showInput: true,
                     showAlpha: true,
                     clickoutFiresChange: false,
-                    change: function (ah) {
+                    change: function(ah) {
                         da[ab] = ah.toRgbString();
                         hx(ab, da[ab]);
                     }
@@ -6405,7 +6405,7 @@ var version, showSideMenu, hideSideMenu;
                 chooseText: 'Add',
                 flat: true,
                 clickoutFiresChange: false,
-                change: function (ab) {
+                change: function(ab) {
                     if (!de.cThemeEnabled) {
                         hm();
                     };
@@ -6430,7 +6430,7 @@ var version, showSideMenu, hideSideMenu;
                     var ab = da._FoodColors[ah];
                     ac.append('<div c=\'' + ab + '\' style=\'background:' + ab + ';color:' + hz(ab) + ';\'><span>' + ab + '</span><div><button class=\'btn-food-color\'>X</button></div></div>');
                 };
-                $('.btn-food-color').on('click', function () {
+                $('.btn-food-color').on('click', function() {
                     var ac = $(this).parents().eq(1).attr('c');
                     var ab, ah;
                     while ((ab = da._FoodColors.indexOf(ac)) !== -1) {
@@ -6515,7 +6515,7 @@ var version, showSideMenu, hideSideMenu;
                 var af = new Image();
                 af.src = 'images/ejected_mass_skins/' + ag + '.png';
                 af.index = ah;
-                af.addEventListener('load', function () {
+                af.addEventListener('load', function() {
                     ge[this.index] = aj.Texture.from(this);
                 });
             };
@@ -6531,7 +6531,7 @@ var version, showSideMenu, hideSideMenu;
                     frames: 'all',
                     cumulative: false,
                     outputType: 'canvas'
-                }).then(function (ab) {
+                }).then(function(ab) {
                     var ah = new go();
                     ah.loadFromFrameData(ab);
                     gh[ac] = ah;
@@ -6549,7 +6549,7 @@ var version, showSideMenu, hideSideMenu;
                 ag = '/spike_mother.png';
             };
             var ah = new Image();
-            ah.addEventListener('load', function () {
+            ah.addEventListener('load', function() {
                 bi = aj.Texture.from(ah);
                 if (ba) {
                     for (var ab in ba.bucket) {
@@ -6561,7 +6561,7 @@ var version, showSideMenu, hideSideMenu;
                 }
             });
             var ac = new Image();
-            ac.addEventListener('load', function () {
+            ac.addEventListener('load', function() {
                 bj = aj.Texture.from(ac);
                 if (ba) {
                     for (var ab in ba.bucket) {
@@ -6573,7 +6573,7 @@ var version, showSideMenu, hideSideMenu;
                 }
             });
             var af = new Image();
-            af.addEventListener('load', function () {
+            af.addEventListener('load', function() {
                 bk = aj.Texture.from(af);
                 if (ba) {
                     for (var ab in ba.bucket) {
@@ -6588,95 +6588,95 @@ var version, showSideMenu, hideSideMenu;
             af.src = ab + ag;
         }
         const il = {
-            cDisableAA: function () {
+            cDisableAA: function() {
                 if (ak) {
                     $('#performance-refresh').css('display', 'table-row');
                 }
             },
-            sRenderType: function () {
+            sRenderType: function() {
                 if (ak) {
                     $('#performance-refresh').css('display', 'table-row');
                 }
             },
-            cHideId: function () {
+            cHideId: function() {
                 var ab = de.cHideId ? 'none' : 'block';
                 $('.pID').css('display', ab);
             },
-            cHideServerDisplay: function () {
+            cHideServerDisplay: function() {
                 var ab = de.cHideServerDisplay ? 'none' : 'block';
                 $('.psvr').css('display', ab);
             },
-            cTransCells: function () {
+            cTransCells: function() {
                 au.alpha = de.cTransCells ? 0.5 : 1;
             },
-            cColoredCellCount: function () {
+            cColoredCellCount: function() {
                 ba.updateCellCounter(cx.playerCellCount, true);
             },
-            cHideChat: function () {
+            cHideChat: function() {
                 var ab = de.cHideChat ? 'none' : 'block';
                 $('#chat-panel').css('display', ab);
             },
-            cHideMinimap: function () {
+            cHideMinimap: function() {
                 var ab = de.cHideMinimap ? 'none' : 'block';
                 $('#minimap-panel').css('display', ab);
             },
-            cHideScorePanel: function () {
+            cHideScorePanel: function() {
                 var ab = de.cHideScorePanel ? 'none' : 'inline-block';
                 $('#score-panel').css('display', ab);
             },
-            cHideLeaderboard: function () {
+            cHideLeaderboard: function() {
                 var ab = de.cHideLeaderboard ? 'none' : 'block';
                 $('#leaderboard-panel').css('display', ab);
             },
-            cHideExtraPanel: function () {
+            cHideExtraPanel: function() {
                 var ab = de.cHideExtraPanel ? 'none' : 'block';
                 $('#extra-panel').css('display', ab);
             },
-            cShowCoordinates: function () {
+            cShowCoordinates: function() {
                 var ab = de.cShowCoordinates ? 'block' : 'none';
                 $('#minimap-coordinates').css('display', ab);
                 hv();
             },
-            cDisableAutoZoom: function () {
+            cDisableAutoZoom: function() {
                 if (de.cDisableAutoZoom) {
                     ba.scale_base = 0.2 * Math.max(ax.height / 1080, ax.width / 1920);
                 }
             },
-            cThemeEnabled: function () {
+            cThemeEnabled: function() {
                 if (!de.cThemeEnabled) {
                     im();
-                    em(function (ab) {
+                    em(function(ab) {
                         $('#' + ab).spectrum('disable');
                     });
                 } else {
-                    em(function (ab) {
+                    em(function(ab) {
                         $('#' + ab).spectrum('enable');
                     });
                 }
             },
-            cShowBorder: function () {
+            cShowBorder: function() {
                 es();
             },
-            cDisableEventSkins: function () {
+            cDisableEventSkins: function() {
                 if (cy.enabled) {
                     $('body').toggleClass('event-' + cy.key);
                 };
                 ic();
                 du();
             },
-            cResizableChat: function () {
+            cResizableChat: function() {
                 $('#chat-resize').css('display', de.cResizableChat ? 'block' : 'none');
             },
-            sShowNames: function () {
+            sShowNames: function() {
                 3 = iq[de.sShowNames];
             },
-            sShowSkins: function () {
+            sShowSkins: function() {
                 3 = iq[de.sShowSkins];
             },
-            sMassType: function () {
+            sMassType: function() {
                 gc.massType = ir[de.sMassType];
             },
-            sTextOutlines: function () {
+            sTextOutlines: function() {
                 0 = it[de.sTextOutlines];
                 for (var ab in ba.playerRegistry.bucket) {
                     var ah = ba.playerRegistry.bucket[ab];
@@ -6687,11 +6687,11 @@ var version, showSideMenu, hideSideMenu;
                 };
                 fu.buildSizeCache();
             },
-            sQuality: function () {
+            sQuality: function() {
                 ;
                 1 = iu[de.sQuality];
             },
-            uiForegroundColor: function (ab) {
+            uiForegroundColor: function(ab) {
                 if (ba) {
                     ba.drawParty();
                 };
@@ -6702,77 +6702,77 @@ var version, showSideMenu, hideSideMenu;
                 $('.main').css('color', ab);
                 $('.main-bottom-stats').css('border-color', ab);
             },
-            uiBackgroundColor: function (ab) {
+            uiBackgroundColor: function(ab) {
                 $('.hud-panel .interface-color').css('background-color', ab);
             },
-            uiButtonColor: function (ab) {
+            uiButtonColor: function(ab) {
                 $('.gota-btn').css('background-color', ab);
             },
-            uiBorderColor: function (ab) {
+            uiBorderColor: function(ab) {
                 $('.ui-pane').css('border-color', ab);
                 $('#chat-tab-container').css('border-color', ab);
                 $('.chat-tab').css('border-color', ab);
             },
-            uiMenuBackgroundColor: function (ab) {
+            uiMenuBackgroundColor: function(ab) {
                 $('.main-panel').css('background-color', ab);
                 $('.popup-panel').css('background-color', ab);
                 $('.options-container').css('background-color', ab);
             },
-            uiMenuTitleBackgroundColor: function (ab) {
+            uiMenuTitleBackgroundColor: function(ab) {
                 $('.menu-title').css('background-color', ab);
             },
-            uiMenuSubBackgroundColor: function (ab) {
+            uiMenuSubBackgroundColor: function(ab) {
                 $('.menu-sub-bg').css('background-color', ab);
                 $('.server-active').css('background-color', ab);
                 $('#server-content').css('background-color', ab);
             },
-            uiMenuSubBackground2Color: function (ab) {
+            uiMenuSubBackground2Color: function(ab) {
                 $('.menu-sub-bg2').css('background-color', ab);
                 $('.server-table tbody').css('background-color', ab);
             },
-            uiPartyLeaderColor: function (ab) {
+            uiPartyLeaderColor: function(ab) {
                 if (ba) {
                     ba.drawParty();
                 }
             },
-            uiGameColorSuccess: function (ab) {
+            uiGameColorSuccess: function(ab) {
                 $('#social-friends-online-count').css('color', ab);
             },
-            uiGameBackgroundColor: function (ab) {
+            uiGameBackgroundColor: function(ab) {
                 document.body.style.background = ab;
             },
-            uiGameBorderColor: function () {
+            uiGameBorderColor: function() {
                 es();
             },
-            rUiScale: function (ab) {
+            rUiScale: function(ab) {
                 de.rUiScale = Math.min(Math.max(ab, 0.5), 1.25);
                 $('#uiScale').val(Number.parseFloat(de.rUiScale * 100).toFixed(0));
                 $('.ui-scale').css('transform', 'scale(' + de.rUiScale + ')');
             },
-            rAnimationDelay: function (ab) {
+            rAnimationDelay: function(ab) {
                 de.rAnimationDelay = Math.min(Math.max(ab, 1), 250);
                 $('#animationDelay').val(de.rAnimationDelay);
             },
-            rViewDistance: function (ab) {
+            rViewDistance: function(ab) {
                 de.rViewDistance = Math.min(Math.max(ab, 50), 150);
                 $('#viewDistance').val(de.rViewDistance);
                 ba.sendOptions();
             },
-            rBorderSize: function (ab) {
+            rBorderSize: function(ab) {
                 da.rBorderSize = Math.min(Math.max(ab, 1), 256);
                 $('#borderSize').text(da.rBorderSize);
                 es();
             },
-            rBackgroundOpacity: function (ab) {
+            rBackgroundOpacity: function(ab) {
                 da.rBackgroundOpacity = Math.min(Math.max(ab, 0), 1);
                 $('#backgroundOpacity').text(Number.parseFloat(da.rBackgroundOpacity * 100).toFixed(0));
                 document.getElementById('canvas-background').style.opacity = da.rBackgroundOpacity;
             },
-            aCustomBackground: function (ab) {
+            aCustomBackground: function(ab) {
                 document.getElementById('canvas-background').style.backgroundImage = 'url(\'' + ab + '\')';
                 document.getElementById('canvas-background').style.backgroundSize = '100% 100%';
             },
-            aCustomSpike: function (af) {
+            aCustomSpike: function(af) {
                 if (null) {
                     null.destroy();
                 };
@@ -6788,15 +6788,15 @@ var version, showSideMenu, hideSideMenu;
                 };
                 var ab = new Image();
                 ab.crossOrigin = '';
-                ab.addEventListener('load', function () {
+                ab.addEventListener('load', function() {
                     null = aj.Texture.from(ab);
                 });
-                ab.addEventListener('error', function () {
+                ab.addEventListener('error', function() {
                     ba.selfMsg('Unable to load custom theme virus.');
                 });
                 ab.src = af;
             },
-            aCustomMother: function (af) {
+            aCustomMother: function(af) {
                 if (null) {
                     null.destroy();
                 };
@@ -6812,10 +6812,10 @@ var version, showSideMenu, hideSideMenu;
                 };
                 var ab = new Image();
                 ab.crossOrigin = '';
-                ab.addEventListener('load', function () {
+                ab.addEventListener('load', function() {
                     null = aj.Texture.from(ab);
                 });
-                ab.addEventListener('error', function () {
+                ab.addEventListener('error', function() {
                     ba.selfMsg('Unable to load custom theme mother cell.');
                 });
                 ab.src = af;
@@ -6842,7 +6842,7 @@ var version, showSideMenu, hideSideMenu;
 
         function iv() {
             iw();
-            $('#btn-chg-ln').on('click', function () {
+            $('#btn-chg-ln').on('click', function() {
                 if (!ce) {
                     return;
                 };
@@ -6869,10 +6869,10 @@ var version, showSideMenu, hideSideMenu;
                     ba.sendPacket(new bb.sendLockedNameChange(ah));
                 }
             });
-            $('#btn-updateSP').on('click', function () {
+            $('#btn-updateSP').on('click', function() {
                 fw();
             });
-            $('#btn-subpanel-rules').on('click', function () {
+            $('#btn-subpanel-rules').on('click', function() {
                 dl.rules = true;
                 fb();
             });
@@ -6993,7 +6993,7 @@ var version, showSideMenu, hideSideMenu;
                 var af = ac[ah];
                 $('#servers-body-' + af.region).prepend('<tr id="s_' + af.name + '" class="account-server server-row" server="' + af.name + '"><td class="server-table-name">' + af.name + '</td><td class="server-table-players">' + af.playerText + '</td><td class="server-table-mode">' + af.mode + '</td></tr>');
             };
-            $('.server-row').on('click', function () {
+            $('.server-row').on('click', function() {
                 dx($(this).attr('server'));
             });
         }
@@ -7116,7 +7116,7 @@ var version, showSideMenu, hideSideMenu;
                 ah.append('<li class=\'chat-tab\' id=\'chat-tab-' + ac + '\' name=\'' + ac + '\'><span>' + af.name + '</span></li>');
                 ab.append('<div class=\'chat-inner-container\' id=\'chat-container-' + ac + '\'><table class=\'chat-table\'><tbody id=\'chat-body-' + ac + '\'></tbody></table></div>');
             };
-            $('.chat-tab').on('click', function () {
+            $('.chat-tab').on('click', function() {
                 iz($(this).attr('name'));
             }).css('border-color', da.uiBorderColor);
             if (dd >= 0 && dd < de._ChatTabs.length) {
@@ -7248,10 +7248,10 @@ var version, showSideMenu, hideSideMenu;
             ja();
             iz(ah);
         }
-        var fp = function (ab) {
+        var fp = function(ab) {
             jd(ab, this.innerText, this.dataset.playerId, -1);
         };
-        var hu = function (ab) {
+        var hu = function(ab) {
             var af = ab.offsetY;
             var ac = Math.floor(af / 20);
             if (af % 20 < 5) {
@@ -7357,7 +7357,7 @@ var version, showSideMenu, hideSideMenu;
             if (ab.css('display') == 'block' && ab.css('opacity') == 1) {
                 ab.animate({
                     opacity: 0
-                }, 500, function () {
+                }, 500, function() {
                     ab.css('display', 'none');
                 });
             }
@@ -7374,7 +7374,7 @@ var version, showSideMenu, hideSideMenu;
         }
 
         function ht() {
-            $('.popup-panel').each(function () {
+            $('.popup-panel').each(function() {
                 dt($(this));
             });
         }
@@ -7593,7 +7593,7 @@ var version, showSideMenu, hideSideMenu;
         function hr(ab) {
             if (/\.(json)$/i.test(ab.name)) {
                 var ah = new FileReader();
-                ah.addEventListener('load', function () {
+                ah.addEventListener('load', function() {
                     if (!de.cThemeEnabled) {
                         hm();
                     };
@@ -7668,7 +7668,7 @@ var version, showSideMenu, hideSideMenu;
                 var ab = gk[ah];
                 var af = 'images/powerups/' + ab.img + '.png';
                 var ac = new Image();
-                ac.addEventListener('load', function (ab, ah) {
+                ac.addEventListener('load', function(ab, ah) {
                     ab.texture = aj.Texture.from(ah);
                 }.bind(null, ab, ac));;
                 ab.image = ac;
@@ -7685,7 +7685,7 @@ var version, showSideMenu, hideSideMenu;
             this.nextCacheUpdate = 0;
             this.texture = null;
             this.bonusMaxCells = 0;
-            this.onAddBuff = function (ac, af, ah) {
+            this.onAddBuff = function(ac, af, ah) {
                 var ab = null;
                 var ag = gk[ac].type;
                 if (ag != 3) {
@@ -7708,7 +7708,7 @@ var version, showSideMenu, hideSideMenu;
                     ba.selfMsg('Recieved buff: ' + ab.powerup.name);
                 }
             };
-            this.onRemoveBuff = function (ac) {
+            this.onRemoveBuff = function(ac) {
                 var ab = null;
                 var af = gk[ac].type;
                 if (af != 3) {
@@ -7733,7 +7733,7 @@ var version, showSideMenu, hideSideMenu;
                     ba.selfMsg('Lost buff: ' + ab.powerup.name);
                 }
             };
-            this.clearBuffs = function (af) {
+            this.clearBuffs = function(af) {
                 if (this.passiveSortedBuffs.length == 0 && this.consumableBuffs.length == 0) {
                     return;
                 };
@@ -7749,7 +7749,7 @@ var version, showSideMenu, hideSideMenu;
                 this.consumableBuffs = [];
                 this.markCacheForUpdate();
             };
-            this.sortPassiveBuffs = function () {
+            this.sortPassiveBuffs = function() {
                 this.passiveSortedBuffs = [];
                 if (this.passiveBuffs.length == 0) {
                     return;
@@ -7763,14 +7763,14 @@ var version, showSideMenu, hideSideMenu;
                     }
                 }
             };
-            this.onPassiveBuffsUpdate = function () {
+            this.onPassiveBuffsUpdate = function() {
                 this.bonusMaxCells = 0;
                 if (this.passiveBuffs[1] != null) {
                     var ab = this.passiveBuffs[1];
                     this.bonusMaxCells = ab.stack * 16;
                 }
             };
-            this.update = function () {
+            this.update = function() {
                 if (this.passiveSortedBuffs.length == 0 && this.consumableBuffs.length == 0) {
                     av.visible = false;
                     return;
@@ -7788,7 +7788,7 @@ var version, showSideMenu, hideSideMenu;
                 av.position.y = 15 - ak.stage.position.y;
                 av.visible = true;
             };
-            this.updateCache = function () {
+            this.updateCache = function() {
                 var ah = this.cache == null || this.cache.canvas == null ? document.createElement('canvas') : this.cache.canvas;
                 var af = Math.max(this.passiveSortedBuffs.length, this.consumableBuffs.length);
                 ah.width = 55 * af;
@@ -7815,7 +7815,7 @@ var version, showSideMenu, hideSideMenu;
                 };
                 this.nextCacheUpdate = Date.now() + 1000;
             };
-            this.markCacheForUpdate = function () {
+            this.markCacheForUpdate = function() {
                 this.nextCacheUpdate = 0;
             };
         }
@@ -7827,12 +7827,12 @@ var version, showSideMenu, hideSideMenu;
             this.startTime = Date.now();
             this.expireTime = ab;
             this.stack = ac;
-            this.update = function (ah, ab) {
+            this.update = function(ah, ab) {
                 this.startTime = Date.now();
                 this.expireTime = ab;
                 this.stack = ah;
             };
-            this.getCooldown = function () {
+            this.getCooldown = function() {
                 if (Date.now() >= this.expireTime) {
                     return 2 * Math.PI;
                 } else {
@@ -7842,7 +7842,7 @@ var version, showSideMenu, hideSideMenu;
                     return ab * Math.PI;
                 }
             };
-            this.draw = function (ab, ah, ac) {
+            this.draw = function(ab, ah, ac) {
                 ab.drawImage(this.powerup.image, ah, ac, 50, 50);
                 if (this.stack > 1) {
                     ab.fillStyle = '#000';
@@ -7867,19 +7867,19 @@ var version, showSideMenu, hideSideMenu;
             this.delay = 0;
             this.frames = [];
             this.isGif = true;
-            this.push = function (ab) {
+            this.push = function(ab) {
                 this.frames.push(ab);
             };
-            this.getFrame = function (ab) {
+            this.getFrame = function(ab) {
                 return this.frames[ab];
             };
-            this.getLength = function () {
+            this.getLength = function() {
                 return this.frames.length;
             };
-            this.getTexture = function () {
+            this.getTexture = function() {
                 return this.getFrame(Math.floor(bc / this.delay) % this.getLength());
             };
-            this.loadFromFrameData = function (bx) {
+            this.loadFromFrameData = function(bx) {
                 if (bx.length === 0) {
                     return;
                 };
@@ -7944,7 +7944,7 @@ var version, showSideMenu, hideSideMenu;
         delete jj;
         delete jk;
         if (cy.enabled && cy.foodColors) {
-            jo = function (ab) {
+            jo = function(ab) {
                 return cy.foodColors[ab % cy.foodColors.length];
             };
         };
@@ -7990,7 +7990,7 @@ var version, showSideMenu, hideSideMenu;
                     't',
                     'w'
                 ],
-                action: function (ab) {
+                action: function(ab) {
                     var ah = parseInt(ab[0]);
                     if (isNaN(ah)) {
                         ba.selfMsg('Invalid player id.');
@@ -8009,7 +8009,7 @@ var version, showSideMenu, hideSideMenu;
                     'reply',
                     'r'
                 ],
-                action: function (ab) {
+                action: function(ab) {
                     var ah = ab.join(' ');
                     if (ah.length != 0) {
                         ba.sendPacket(new bb.sendWhisper(0, ah));
@@ -8023,7 +8023,7 @@ var version, showSideMenu, hideSideMenu;
                     'party',
                     'p'
                 ],
-                action: function (ab) {
+                action: function(ab) {
                     var ah = ab.join(' ');
                     if (ah.length != 0) {
                         ba.sendPacket(new bb.sendChat(ah, 1));
@@ -8037,7 +8037,7 @@ var version, showSideMenu, hideSideMenu;
                     'invite',
                     'i'
                 ],
-                action: function (ab) {
+                action: function(ab) {
                     var ah = parseInt(ab[0]);
                     if (!isNaN(ah)) {
                         ba.sendPacket(new bb.sendPartyAction(0, ah));
@@ -8052,14 +8052,14 @@ var version, showSideMenu, hideSideMenu;
                     'leave',
                     'l'
                 ],
-                action: function (ab) {
+                action: function(ab) {
                     ba.sendPacket(new bb.sendPartyAction(3, 0));
                 }
             },
             promote: {
                 description: 'Promote a party member to leader',
                 triggers: .promote,
-                action: function (ab) {
+                action: function(ab) {
                     var ah = parseInt(ab[0]);
                     if (!isNaN(ah)) {
                         ba.sendPacket(new bb.sendPartyAction(2, ah));
@@ -8071,7 +8071,7 @@ var version, showSideMenu, hideSideMenu;
             kick: {
                 description: 'Kick a player from the party',
                 triggers: .kick,
-                action: function (ab) {
+                action: function(ab) {
                     var ah = parseInt(ab[0]);
                     if (!isNaN(ah)) {
                         ba.sendPacket(new bb.sendPartyAction(1, ah));
@@ -8083,7 +8083,7 @@ var version, showSideMenu, hideSideMenu;
             clear: {
                 description: 'Clear the chat',
                 triggers: .clear,
-                action: function (ab) {
+                action: function(ab) {
                     var ah = document.getElementById('chat-body');
                     while (ah.firstChild != null) {
                         ah.removeChild(ah.firstChild);
@@ -8093,7 +8093,7 @@ var version, showSideMenu, hideSideMenu;
             info: {
                 description: 'Get your current ID',
                 triggers: .info,
-                action: function (ab) {
+                action: function(ab) {
                     if (ba.playerId > 0) {
                         ba.selfMsg('Your id is ' + ba.playerId);
                     } else {
@@ -8104,7 +8104,7 @@ var version, showSideMenu, hideSideMenu;
             scrimmenu: {
                 description: 'Show the scrimmage menu',
                 triggers: .scrimmenu,
-                action: function (ab) {
+                action: function(ab) {
                     bs.css('display', bs.css('display') == 'none' ? 'block' : 'none');
                 }
             },
@@ -8114,7 +8114,7 @@ var version, showSideMenu, hideSideMenu;
                     'join',
                     'j'
                 ],
-                action: function (ab) {
+                action: function(ab) {
                     var ah = ab[0];
                     if (ah != null && ah.length != 0) {
                         ba.sendPacket(new bb.sendPartyJoin(ah));
@@ -8124,21 +8124,21 @@ var version, showSideMenu, hideSideMenu;
             private: {
                 description: 'Set the party to private',
                 triggers: .private,
-                action: function (ab) {
+                action: function(ab) {
                     ba.sendPacket(new bb.sendPartyAction(4, 1));
                 }
             },
             public: {
                 description: 'Allow players to join the party without an invite',
                 triggers: .public,
-                action: function (ab) {
+                action: function(ab) {
                     ba.sendPacket(new bb.sendPartyAction(4, 0));
                 }
             },
             reset_chat: {
                 description: 'Reset chat size',
                 triggers: .resetchat,
-                action: function (ab) {
+                action: function(ab) {
                     $('#chat-panel').css('width', '360px');
                     $('#chat-panel').css('height', '250px');
                 }
@@ -8146,7 +8146,7 @@ var version, showSideMenu, hideSideMenu;
             reset_chat_tabs: {
                 description: 'Reset chat tab settings',
                 triggers: .resetchattabs,
-                action: function (ab) {
+                action: function(ab) {
                     de._ChatTabs = JSON.parse(JSON.stringify(dc));
                     fm();
                     eh();
@@ -8158,7 +8158,7 @@ var version, showSideMenu, hideSideMenu;
                     'spectate',
                     's'
                 ],
-                action: function (ab) {
+                action: function(ab) {
                     var ah = parseInt(ab[0]);
                     if (!isNaN(ah)) {
                         ba.sendPacket(new bb.sendSpectate(ah));
@@ -8170,14 +8170,14 @@ var version, showSideMenu, hideSideMenu;
             disconnect: {
                 description: 'Disconnect from the server',
                 triggers: .disconnect,
-                action: function (ab) {
+                action: function(ab) {
                     ba.disconnect();
                 }
             },
             account: {
                 description: 'Get Account UID',
                 triggers: .account,
-                action: function (ab) {
+                action: function(ab) {
                     if (ch === null) {
                         ba.selfMsg('You are not logged in.');
                         return;
@@ -8191,7 +8191,7 @@ var version, showSideMenu, hideSideMenu;
                     'block',
                     'b'
                 ],
-                action: function (ab) {
+                action: function(ab) {
                     var ac = parseInt(ab[0]);
                     if (!isNaN(ac)) {
                         var ah = en(ac);
@@ -8719,7 +8719,7 @@ var version, showSideMenu, hideSideMenu;
                 ab.download = af;
                 document.body.appendChild(ab);
                 ab.click();
-                setTimeout(function () {
+                setTimeout(function() {
                     document.body.removeChild(ab);
                     window.URL.revokeObjectURL(ae);
                 }, 0);
@@ -8799,10 +8799,10 @@ var version, showSideMenu, hideSideMenu;
                 ff($('#popup-changelog'));
             }
         }
-        $(window).focus(function () {
+        $(window).focus(function() {
             co = true;
         });
-        $(window).blur(function () {
+        $(window).blur(function() {
             co = false;
         });
 
@@ -8838,9 +8838,9 @@ var version, showSideMenu, hideSideMenu;
                 accept: $('#acceptCookies'),
                 handlersBound: false
             };
-            this.init = function () {
+            this.init = function() {
                 this.backwardsCompatable();
-                this.consentOption.on('change', function (ab) {
+                this.consentOption.on('change', function(ab) {
                     eg.consentHandler($(this).prop('checked'));
                 });
                 var ab = this.getConsentCookie();
@@ -8852,14 +8852,14 @@ var version, showSideMenu, hideSideMenu;
                     this.showCookieBanner(true);
                 }
             };
-            this.consentHandler = function (ab) {
+            this.consentHandler = function(ab) {
                 this.consented = ab;
                 aiptag.consented = ab;
                 this.consentOption.prop('checked', ab);
                 if (!ab) {
                     this.deleteConsentCookie();
                     if (firebase.auth().currentUser !== null) {
-                        firebase.auth().signOut().then(function () {}).catch(aa => {});
+                        firebase.auth().signOut().then(function() {}).catch(aa => {});
                     };
                     $('#authed').hide();
                     $('#account-loader').hide();
@@ -8879,7 +8879,7 @@ var version, showSideMenu, hideSideMenu;
                     }
                 }
             };
-            this.showCookieBanner = function (ab) {
+            this.showCookieBanner = function(ab) {
                 if (ab) {
                     if (!this.cookieBanner.handlersBound) {
                         this.bindBannerHandlers();
@@ -8890,27 +8890,27 @@ var version, showSideMenu, hideSideMenu;
                     this.cookieBanner.banner.slideUp();
                 }
             };
-            this.bindBannerHandlers = function () {
-                this.cookieBanner.decline.on('click', function (ab) {
+            this.bindBannerHandlers = function() {
+                this.cookieBanner.decline.on('click', function(ab) {
                     eg.consentHandler(false);
                     eg.showCookieBanner(false);
                 });
-                this.cookieBanner.accept.on('click', function (ab) {
+                this.cookieBanner.accept.on('click', function(ab) {
                     eg.consentHandler(true);
                     eg.showCookieBanner(false);
                 });
                 $('#cookie-banner .description').append(' <a href="' + this.policyLink + '" target="_blank">Our Cookie Policy!</a>');
             };
-            this.createConsentCookie = function () {
+            this.createConsentCookie = function() {
                 var ab = new Date();
                 ab.setTime(ab.getTime() + this.consentCookie.exdays * 24 * 60 * 60 * 1000);
                 var ah = 'expires=' + ab.toUTCString();
                 document.cookie = this.consentCookie.name + '=' + this.consentCookie.value + ';' + ah + ';path=' + this.consentCookie.path + ';';
             };
-            this.deleteConsentCookie = function () {
+            this.deleteConsentCookie = function() {
                 document.cookie = this.consentCookie.name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=' + this.consentCookie.path + ';';
             };
-            this.getConsentCookie = function () {
+            this.getConsentCookie = function() {
                 var ag = this.consentCookie.name + '=';
                 var ac = decodeURIComponent(document.cookie);
                 var ah = ac.split(';');
@@ -8925,7 +8925,7 @@ var version, showSideMenu, hideSideMenu;
                 };
                 return false;
             };
-            this.backwardsCompatable = function () {
+            this.backwardsCompatable = function() {
                 ;
                 var ac = decodeURIComponent(document.cookie);
                 var ah = ac.split(';');
@@ -8951,7 +8951,7 @@ var version, showSideMenu, hideSideMenu;
 
         function jw() {
             this.playCounter = 0;
-            this.incrementPlay = function () {
+            this.incrementPlay = function() {
                 if (ce) {
                     return false;
                 };
@@ -8966,14 +8966,14 @@ var version, showSideMenu, hideSideMenu;
 
         function jx() {
             if (typeof aipPlayer != 'undefined') {
-                aiptag.cmd.player.push(function () {
+                aiptag.cmd.player.push(function() {
                     adplayer = new aipPlayer({
                         AD_WIDTH: 960,
                         AD_HEIGHT: 540,
                         AD_CENTERPLAYER: false,
                         LOADING_TEXT: 'Advertisement Loading...',
                         PREROLL_ELEM: document.getElementById('preroll'),
-                        AIP_COMPLETE: function () {
+                        AIP_COMPLETE: function() {
                             if (!ba.spectate) {
                                 ba.play();
                             } else {
