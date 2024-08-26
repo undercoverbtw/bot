@@ -96,7 +96,6 @@ class Helper {
         this.proxies.push(proxy);
         switch (protocol) {
             case 'http':
-                 return new HttpProxyAgent(`${protocol}://${proxy}`);
             case 'https':
                 return new HttpsProxyAgent(`${protocol}://${proxy}`);
             case 'socks4':
