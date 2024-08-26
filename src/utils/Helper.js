@@ -6,7 +6,6 @@ const config = require('../config/config');
 const Logger = require('./Logger.js');
 const { HttpsProxyAgent } = require('https-proxy-agent');
 const { SocksProxyAgent } = require('socks-proxy-agent');
-const { SocksProxyAgent } = require('http-proxy-agent');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 class Helper {
