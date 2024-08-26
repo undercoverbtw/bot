@@ -6,6 +6,7 @@ const config = require('../config/config');
 const Logger = require('./Logger.js');
 const { HttpsProxyAgent } = require('https-proxy-agent');
 const { SocksProxyAgent } = require('socks-proxy-agent');
+const { SocksProxyAgent } = require('http-proxy-agent');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 class Helper {
@@ -31,7 +32,8 @@ class Helper {
             'Pragma': 'no-cache',
             'Sec-WebSocket-Extensions': 'permessage-deflate; client_max_window_bits',
             'Sec-WebSocket-Version': '13',
-            'User-Agent": "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
+            'Sec-WebSocket-Key': '',
+            'User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0",
         }
     }
     static async sendRequest(agent) {
@@ -94,6 +96,7 @@ class Helper {
         this.proxies.push(proxy);
         switch (protocol) {
             case 'http':
+                 return new HttpProxyAgent(`${protocol}://${proxy}`);
             case 'https':
                 return new HttpsProxyAgent(`${protocol}://${proxy}`);
             case 'socks4':
