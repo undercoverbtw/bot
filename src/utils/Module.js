@@ -51,7 +51,7 @@ class Module {
         if (!startedBots) {
             stoppingBots = false;
             for (let i = 0; i < config.botsAmount; i++) this.bots.push(new NELBOTS(i, this.ws));
-            this.botInt = setInterval(() => { this.updateAliveBots(); }, 200);
+            this.botInt = setInterval(() => { this.updateAliveBots(); }, 500);
             Logger.info(`User Starting bots`);
         }
     }
@@ -185,13 +185,16 @@ class NELBOTS {
 	}
 	handleUpdate(reader) {
 		let numberOfReads = reader.readUint16();
+		numberOfReads.offset += 2;
 		while (numberOfReads > 0) {
 			reader.readUint16();
+			numberOfReads.offset += 2;
 			numberOfReads--;
 		}
 		numberOfReads = reader.readUint16();
 		while (numberOfReads > 0) {
 			reader.readUint16();
+			numberOfReads.offset += 2;
 			numberOfReads--;
 		}
 		while (true) {
