@@ -208,7 +208,8 @@ class NELBOTS {
 		}
 	}
 	send(message) {
-		if (this.ws?.readyState === WebSocket.OPEN) this.ws.send(message);
+		if (this.ws?.readyState === WebSocket.OPEN) 
+			this.ws.send(message);
 	}
 	handleUpdate(reader) {
 		let numberOfReads = reader.readUint16();
@@ -340,7 +341,7 @@ class NELBOTS {
 		this.send(writer.buffer);
 	}
 	spawn() {
-		const string = config.botsName + "|" + Helper.randomString(10);
+		const string = config.botsName;
 		const writer = new Writer(2 + (string.length + 1) * 2);
 		writer.writeUint8(0);
 		writer.writeString16(string);
