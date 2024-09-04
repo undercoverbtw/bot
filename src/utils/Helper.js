@@ -8,19 +8,7 @@ const { HttpsProxyAgent } = require('https-proxy-agent');
 const { SocksProxyAgent } = require('socks-proxy-agent');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
-class Helper {
-    static createServer() {
-        if (config.server.useHttps) {
-            const keyPath = path.join(__dirname, '../certs/key.pem');
-            const certPath = path.join(__dirname, '../certs/cert.pem');
-            const key = fs.readFileSync(keyPath);
-            const cert = fs.readFileSync(certPath);
-            return https.createServer({ key, cert });
-        } else {
-            return http.createServer();
-        }
-    }
-     const userAgentList = [
+ const userAgentList = [
      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36",
 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36",
 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36",
@@ -72,7 +60,21 @@ class Helper {
 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36",
 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36",
     ];
-    
+
+
+class Helper {
+    static createServer() {
+        if (config.server.useHttps) {
+            const keyPath = path.join(__dirname, '../certs/key.pem');
+            const certPath = path.join(__dirname, '../certs/cert.pem');
+            const key = fs.readFileSync(keyPath);
+            const cert = fs.readFileSync(certPath);
+            return https.createServer({ key, cert });
+        } else {
+            return http.createServer();
+        }
+    }
+
     static generateHeaders(host) {
         return {
             'Accept-Encoding': 'gzip, deflate, br, zstd',
