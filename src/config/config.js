@@ -7,7 +7,7 @@ module.exports = {
     },
     proxy: {
         scrape: false, // Default: 'false' | Set to true to enable proxy scraping | false use proxies.txt
-        protocol: 'socks5', // Default: 'http' | Proxy protocol, can be 'http', 'https', 'socks4', 'socks5'
+        protocol: 'http', // Default: 'http' | Proxy protocol, can be 'http', 'https', 'socks4', 'socks5'
         timeout: 5000
     },
     botsName: 'cloudy is best',
