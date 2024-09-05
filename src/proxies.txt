@@ -1,4 +1,3 @@
-p.webshare.io:80:dhawqzgf-rotate:wwknnjfubn0k
 204.217.245.191:6782:aangympq:xev6loydcusc
 209.99.165.245:6150:aangympq:xev6loydcusc
 84.46.204.27:6330:aangympq:xev6loydcusc
