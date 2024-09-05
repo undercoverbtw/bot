@@ -5,6 +5,7 @@ const Helper = require("./Helper");
 const Logger = require("./Logger");
 const config = require("../config/config");
 const { HttpsProxyAgent } = require("https-proxy-agent");
+const { SocksProxyAgent } = require("socks-proxy-agent");
 const fs = require("fs");
 
 
@@ -153,8 +154,8 @@ class NELBOTS {
     const username = proxyParts[2];
     const password = proxyParts[3];
 
-    const proxyUrl = `http://${username}:${password}@${host}:${port}`;
-    this.proxyAgent = new HttpsProxyAgent(proxyUrl);
+    const proxyUrl = `socks5://${username}:${password}@${host}:${port}`;
+    this.proxyAgent = new SocksProxyAgent(proxyUrl);
 		
 		this.requestCaptchaToken();
 		this.ws = new WebSocket(server, {
