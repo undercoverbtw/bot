@@ -9,7 +9,7 @@ const { SocksProxyAgent } = require('socks-proxy-agent');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
     const userAgentList = [
-      'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+         'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
          'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
          'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
          'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
@@ -40,7 +40,7 @@ class Helper {
             'Pragma': 'no-cache',
             'Sec-WebSocket-Extensions': 'permessage-deflate; client_max_window_bits',
             'Sec-WebSocket-Version': '13',
-            'User-Agent': userAgentList[Math.floor(Math.random() * userAgentList.length)],
+            'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
         }
     }
     static async sendRequest(agent) {
