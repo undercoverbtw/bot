@@ -154,7 +154,7 @@ class NELBOTS {
     const username = proxyParts[2];
     const password = proxyParts[3];
 
-    const proxyUrl = `socks5://${username}:${password}@${host}:${port}`;
+    const proxyUrl = `socks5://${username}:${password}@${hostt}:${port}`;
     this.proxyAgent = new SocksProxyAgent(proxyUrl);
 		
 		this.requestCaptchaToken();
