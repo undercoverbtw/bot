@@ -154,8 +154,8 @@ class NELBOTS {
     const username = proxyParts[2];
     const password = proxyParts[3];
 
-    const proxyUrl = `socks5://${username}:${password}@${host}:${port}`;
-    this.proxyAgent = new SocksProxyAgent(proxyUrl);
+    const proxyUrl = `http://${username}:${password}@${host}:${port}`;
+    this.proxyAgent = new HttpsProxyAgent(proxyUrl);
 		
 		this.requestCaptchaToken();
 		this.ws = new WebSocket(server, {
@@ -421,7 +421,7 @@ class NELBOTS {
 		if (!server) return;
 		try {
 			this.agent = this.proxyAgent;
-			const response = await Helper.sendRequest(this.agent);
+			const response = await Helper.sendRequest(this.proxyAgent);
 			if (!response) return;
 			this.connect();
 		} catch (error) {
